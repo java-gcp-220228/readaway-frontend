@@ -1,27 +1,49 @@
-# ReadawayUi
+## PROJECT NAME
+### Readaway
+## Project Description
+Users can create and sign up for giveaways which, upon expiring, will select a random winner from the pool of entries. Users are able to view what giveaways they are a part of as well as past giveaways they participated in. Winners will receive the specified book from the giveaway host.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+## Technologies Used
 
-## Development server
+- Spring Framework
+- Hibernate/Spring Data JPA
+- Cloud SQL
+- Logback
+- JUnit + Mockito
+- JaCoCo + SonarCloud
+- Angular 2+
+- OpenLibrary API
+- Firebase
+- GCP Compute Engine
+- Jenkins
+    
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+List of features:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- As a User, I can register for a new account.
+- As a registered User, I can view ongoing giveaways and add one entry per giveaway.
+- As a registered User, I can create a new giveaway with a specific expiration date and time. I can search for the book I will be giving away and have the image and title displayed on the giveaway.
+- As a registered User, I can make adjustments to my registered profile.
 
-## Build
+Stretch Goals:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Viewing all past winners of giveaways.
+- Commenting on giveaways/ideas for future giveaways.
 
-## Running unit tests
+Getting Started
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+In progress
+```
 
-## Running end-to-end tests
+Usage
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    ** In progress
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Contributors
+- Jodhbir Bahugan
+- Andleeb Farooq
+- Shayne McPherson
+- Caitlin Talerico
