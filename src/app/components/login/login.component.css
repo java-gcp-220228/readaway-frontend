@@ -1,0 +1,14 @@
+#login-outer {
+  background-color: #e7dfd8;
+  padding: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: end;
+}
+
+#login {
+  background-color: white;
+  width: 35%;
+  padding: 10px;
+  
+}
