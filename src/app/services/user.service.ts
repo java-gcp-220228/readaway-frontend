@@ -8,7 +8,8 @@ import { environment } from '../../environments/environment'
 @Injectable({
   providedIn: 'root'
 })
-export class UserServiceService {
+
+export class UserService {
 
   http: HttpClient;
 
