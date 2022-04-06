@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit()">
+    <div>
+        <label for="book-search">Find Book</label>
+        <input type="text" name="book-search" [(ngModel)]="bookSearchInput" id="book-search" />
+        <button type="button" (click)="search()">Search</button>
+    </div>
+    <div>
+        <app-search-item *ngFor="let bookData of bookDataItems" [bookData]="bookData" [selectedIsbn]="selectedIsbn" (click)="selectBook(bookData)"></app-search-item>
+    </div>
+    <div>
+        <label for="end-time">End Time</label>
+        <input type="datetime-local" name="end-time" [(ngModel)]="endTime" id="end-time" />
+    </div>
+    <input type="submit" value="Create Giveaway" />
+</form>
