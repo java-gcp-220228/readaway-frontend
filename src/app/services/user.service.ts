@@ -20,16 +20,12 @@ export class UserService {
   }
 
   // need backend functionality?
-  login(username: string, password: string) {
-    //function to authenticate user
-  }
-
   logout() {
     // need to navigate to home page on logout
   }
 
   register() {
-    //function to add new user, post request
+    return this.http.post
   }
 
   getAllUsers() {

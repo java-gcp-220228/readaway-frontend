@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserService } from '../../services/user.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +9,15 @@ import { UserService } from '../../services/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) {
+    this.authService = authService;
+  }
 
   ngOnInit(): void {
+  }
+
+  login() {
+    // if already logged in, return dashboard
   }
 
 }
