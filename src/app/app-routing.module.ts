@@ -5,7 +5,9 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { GiveawayDisplayComponent } from './components/giveaway-display/giveaway-display.component';
 
 const routes: Routes = [
-  { path: 'giveaway', component: GiveawayDisplayComponent},
+  //{ path: 'home', component: HomeComponent},
+  { path: 'giveaway/:id', component: GiveawayDisplayComponent},
+  //{ path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent}
 ];
 

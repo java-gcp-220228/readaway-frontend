@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BookSearchService } from 'src/app/services/book-search.service';
-import { Book } from 'src/app/interfaces/book';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
+import { GiveawayService } from 'src/app/services/giveaway.service';
 
 @Component({
   selector: 'app-giveaway-display',
@@ -9,15 +10,23 @@ import { Book } from 'src/app/interfaces/book';
 })
 export class GiveawayDisplayComponent implements OnInit {
 
-  bookSearchService: BookSearchService;
-  books: Book[] = [];
+  giveawayService: GiveawayService
+  giveawayRouteId!: number | null;
+  currentGiveaway: Object;
 
-  constructor(bookSearchService: BookSearchService) {
-    this.bookSearchService = bookSearchService; 
+  constructor(giveawayService: GiveawayService, private route:ActivatedRoute) {
+    this.giveawayService = giveawayService; 
 
   }
 
   ngOnInit(): void {
+
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.giveawayRouteId = +params.get('id');
+    })
+    this.giveawayService.getGiveawayById(this.giveawayRouteId).subscribe((giveaway)=>{
+      console.log(giveaway);
+    })
   }
 
 }
