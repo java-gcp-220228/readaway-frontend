@@ -1,2 +1,5 @@
-<!-- <img [src]="'https://covers.openlibrary.org/b/isbn/' + currentGiveaway.isbn + '.jpg'" [alt]="currentGiveaway.title + '-image'"> -->
+<ng-container *ngIf="currentGiveaway">
+<img [src]="'https://covers.openlibrary.org/b/isbn/' + currentGiveaway.isbn + '.jpg'" [alt]="currentGiveaway.book_title + '-image'">
 <p>{{currentGiveaway.id}}</p>
+<p>Began: {{+currentGiveaway.start_time*1000 | date: 'short'}}</p>
+</ng-container>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Giveaway } from 'src/app/interfaces/giveaway';
 import { GiveawayService } from 'src/app/services/giveaway.service';
 
 @Component({
@@ -10,11 +11,11 @@ import { GiveawayService } from 'src/app/services/giveaway.service';
 })
 export class GiveawayDisplayComponent implements OnInit {
 
-  giveawayService: GiveawayService
-  giveawayRouteId!: number | null;
-  currentGiveaway: Object;
 
-  constructor(giveawayService: GiveawayService, private route:ActivatedRoute) {
+  giveawayRouteId!: number | null;
+  currentGiveaway!: Giveaway;
+
+  constructor(private giveawayService: GiveawayService, private route:ActivatedRoute, private router:Router) {
     this.giveawayService = giveawayService; 
 
   }
@@ -25,8 +26,12 @@ export class GiveawayDisplayComponent implements OnInit {
       this.giveawayRouteId = +params.get('id');
     })
     this.giveawayService.getGiveawayById(this.giveawayRouteId).subscribe((giveaway)=>{
-      console.log(giveaway);
-    })
+
+        this.currentGiveaway = giveaway;
+    },
+    (error: HttpErrorResponse) => {
+      this.router.navigate(['/not-found']);
+    });
   }
 
 }
