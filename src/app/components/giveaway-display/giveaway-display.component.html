@@ -1,5 +1,13 @@
 <ng-container *ngIf="currentGiveaway">
-<img [src]="'https://covers.openlibrary.org/b/isbn/' + currentGiveaway.isbn + '.jpg'" [alt]="currentGiveaway.book_title + '-image'">
-<p>{{currentGiveaway.id}}</p>
-<p>Began: {{+currentGiveaway.start_time*1000 | date: 'short'}}</p>
+    <div title="book-image" class="p-5 text-center bg-image" [ngStyle]="{'background-image': 'url(' + backgroundImg + ')'}">
+        <div class="mask">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-white">
+                    <h1 class="mb-3">Enter to win!</h1>
+                    <h5 class="mb-4">{{currentGiveaway.book_title}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
 </ng-container>
+<!--Entries go here-->

@@ -3,6 +3,9 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Giveaway } from 'src/app/interfaces/giveaway';
 import { GiveawayService } from 'src/app/services/giveaway.service';
+import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
+
+
 
 @Component({
   selector: 'app-giveaway-display',
@@ -14,9 +17,10 @@ export class GiveawayDisplayComponent implements OnInit {
 
   giveawayRouteId!: number | null;
   currentGiveaway!: Giveaway;
+  backgroundImg: string;
 
-  constructor(private giveawayService: GiveawayService, private route:ActivatedRoute, private router:Router) {
-    this.giveawayService = giveawayService; 
+  constructor(private giveawayService: GiveawayService, private route:ActivatedRoute,
+     private router:Router, private sanitizer: DomSanitizer) {
 
   }
 
@@ -28,6 +32,7 @@ export class GiveawayDisplayComponent implements OnInit {
     this.giveawayService.getGiveawayById(this.giveawayRouteId).subscribe((giveaway)=>{
 
         this.currentGiveaway = giveaway;
+        this.backgroundImg = 'https://covers.openlibrary.org/b/isbn/' + this.currentGiveaway.isbn + '.jpg';
     },
     (error: HttpErrorResponse) => {
       this.router.navigate(['/not-found']);

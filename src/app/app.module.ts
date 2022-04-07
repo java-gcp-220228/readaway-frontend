@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { GiveawayDisplayComponent } from './components/giveaway-display/giveaway-display.component';
 import { GiveawayTableComponent } from './components/giveaway-table/giveaway-table.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
     GiveawayDisplayComponent,
-    GiveawayTableComponent
+    GiveawayTableComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
