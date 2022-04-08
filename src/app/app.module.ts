@@ -22,6 +22,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { GiveawayDisplayComponent } from './components/giveaway-display/giveaway-display.component';
 import { GiveawayTableComponent } from './components/giveaway-table/giveaway-table.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { GiveawayTimerComponent } from './components/giveaway-timer/giveaway-timer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GiveawayButtonComponent } from './components/giveaway-button/giveaway-button.component';
 
 
 @NgModule({
@@ -37,7 +41,10 @@ import { GiveawayTableComponent } from './components/giveaway-table/giveaway-tab
     RegistrationComponent
     PageNotFoundComponent,
     GiveawayDisplayComponent,
-    GiveawayTableComponent
+    GiveawayTableComponent,
+    FooterComponent,
+    GiveawayTimerComponent,
+    GiveawayButtonComponent
   ],
   imports: [
     BrowserModule,
