@@ -24,4 +24,12 @@ export class GiveawayService {
     return this.http.get<Giveaway>(`${this.url}/${id}`)
 
   }
+
+  declareWinner(id: number) {
+    this.http.put(`${this.url}/${id}`, id);
+  }
+
+  enterGiveaway(userId: number, giveawayId: number) {
+    this.http.post(`${this.url}/${giveawayId}`, userId)
+  }
 }

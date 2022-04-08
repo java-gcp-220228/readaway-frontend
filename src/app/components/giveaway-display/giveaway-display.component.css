@@ -1,9 +1,11 @@
-.mask {
-    background-color: rgba(0, 0, 0, 0.7);
+
+:host {
+    background: #F1DDBF;
 }
 
 .bg-image {
     height: 400px;
+    background-repeat: no-repeat;
 }
 
 @media (min-width: 992px) {
