@@ -18,7 +18,8 @@ export class GiveawayCreationComponent implements OnInit {
   }
 
   search(): void {
-    this.bookDataItems = []
+    this.bookDataItems = [];
+    this.selectedIsbn = '';
     this.bookSearchService.search(this.bookSearchInput).subscribe((response) => {
       for(let i = 0; i < 5; i++) {
         this.bookDataItems.push(response.docs[i]);

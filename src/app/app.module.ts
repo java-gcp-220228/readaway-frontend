@@ -7,12 +7,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GiveawayCreationComponent } from './components/giveaway-creation/giveaway-creation.component';
 import { SearchItemComponent } from './components/search-item/search-item.component';
+import { HeaderComponent } from './components/header/header.component';
+import { AboutComponent } from './components/about/about.component';
+import { CommentComponent } from './components/comment/comment.component';
+import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GiveawayCreationComponent,
-    SearchItemComponent
+    SearchItemComponent,
+    HeaderComponent,
+    AboutComponent,
+    CommentComponent,
+    CommentSectionComponent
   ],
   imports: [
     BrowserModule,
