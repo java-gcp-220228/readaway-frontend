@@ -1,20 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Book } from '../interfaces/book';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookSearchService {
 
-  http: HttpClient;
+  constructor(private http: HttpClient) { }
 
-  constructor(http: HttpClient) {
-    this.http = http;
-   }
-
-   getBooksByTitle(title: string): Observable<Book[]> {
-     return this.http.get<Book[]>(`https://openlibrary.org/search.json?title=${title}`, {})
-   }
+  search(bookSearchInput: string): Observable<any> {
+    return this.http.get(`https://openlibrary.org/search.json?title=${encodeURIComponent(bookSearchInput)}`);
+  }
 }

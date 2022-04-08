@@ -1,0 +1,15 @@
+<div>
+    <p>{{ comment.comment_text }}</p>
+</div>
+<div>
+    <p>{{ comment.post_time }}</p>
+    <p (click)="toggleReplyBox()">reply</p>
+</div>
+<div *ngIf="replyBoxToggled">
+    <textarea [(ngModel)]="commentText"></textarea>
+    <button (click)="submit()">Submit</button>
+</div>
+<div style="margin-left:20px">
+    <app-comment *ngFor="let reply of comment.replies" [comment]="reply"></app-comment>
+</div>
+
