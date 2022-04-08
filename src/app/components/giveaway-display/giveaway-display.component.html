@@ -1,34 +1,39 @@
-            <div class="d-flex justify-content-center align-items-center h-100">
-                <div class="text-white">
 
-                    <ng-container *ngIf="currentGiveaway.winner_username; then showWinner; else showTimer">
-                    </ng-container>
-
-                    <ng-template #showWinner>
-                        <h1 class="mb-3">Congratulations, {{currentGiveaway.winner_username}}</h1>
-                        <app-giveaway-button [entries]="null"></app-giveaway-button>
-                    </ng-template>
-                    <ng-template #showTimer>
-                        <mat-grid-list cols="2" rowHeight="500px">
-                            <mat-grid-tile colspan="1" rowspan="2" style.background = "#F1DDBF">
-                                <img [src]="backgroundImg" alt="https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fGJvb2slMjBjb3ZlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1400&q=60">
-                            </mat-grid-tile>
-                            <mat-grid-tile colspan="1" rowspan="1" style.background = "F1DDBF">
-                                <h1 class="mb-3">Enter to win!</h1>
-                                <h3 class="mb-4">{{currentGiveaway.book_title}}</h3>
-                                <app-giveaway-timer [endTimestamp]="+currentGiveaway.end_time" [giveawayId]="currentGiveaway.id"></app-giveaway-timer>
-                            </mat-grid-tile>
-                            <mat-grid-tile colpan="1" aria-rowspan="1">
-                                <app-giveaway-button [entries]="currentGiveaway.entries" [giveawayId]="currentGiveaway.id"></app-giveaway-button>
-                            </mat-grid-tile>
-                        </mat-grid-list>
-                                              
-                        
-                    </ng-template>
-                             
-                    
+<div class="d-flex justify-content-center align-items-center h-100">
+    <div>
+    
+        <ng-container *ngIf="currentGiveaway.winner_username; then showWinner; else showTimer">
+        </ng-container>
+    
+        <ng-template #showWinner>
+            <h1 class="mb-3">Congratulations, {{currentGiveaway.winner_username}}</h1>
+            <app-giveaway-button [entries]="null"></app-giveaway-button>
+        </ng-template>
+        <ng-template #showTimer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md">
+                        <img [src]="backgroundImg" alt="https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fGJvb2slMjBjb3ZlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1400&q=60">
+                    </div>
+                    <div class="col-sm">
+                        <h1 class="mb-3">Enter to win!</h1>
+                    <h3 class="mb-4">{{currentGiveaway.book_title}}</h3>
+                    <app-giveaway-timer [endTimestamp]="+currentGiveaway.end_time" [giveawayId]="currentGiveaway.id"></app-giveaway-timer>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <app-giveaway-button [entries]="currentGiveaway.entries" [giveawayId]="currentGiveaway.id"></app-giveaway-button>
+    
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-
-<!--Entries go here-->
+            </div>                                       
+        </ng-template>
+                 
+        
+    </div>
+    </div>
+    
+    
+    <!--Entries go here-->
+    
