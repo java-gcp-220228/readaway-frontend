@@ -11,7 +11,6 @@ import { GiveawayTableComponent } from './components/giveaway-table/giveaway-tab
 import { FooterComponent } from './components/footer/footer.component';
 import { GiveawayTimerComponent } from './components/giveaway-timer/giveaway-timer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { GiveawayEntriesComponent } from './components/giveaway-entries/giveaway-entries.component';
 import { GiveawayButtonComponent } from './components/giveaway-button/giveaway-button.component';
 
 @NgModule({
@@ -22,7 +21,6 @@ import { GiveawayButtonComponent } from './components/giveaway-button/giveaway-b
     GiveawayTableComponent,
     FooterComponent,
     GiveawayTimerComponent,
-    GiveawayEntriesComponent,
     GiveawayButtonComponent
   ],
   imports: [

@@ -11,6 +11,7 @@ export class GiveawayButtonComponent implements OnInit {
 
   @Input() entries: Entry[];
   @Input() giveawayId: number;
+  @Input() giveawayWinner: string | null;
 
   entered: boolean = false;
   id: number = +localStorage.getItem('user_id');
@@ -23,7 +24,6 @@ export class GiveawayButtonComponent implements OnInit {
     console.log(this.entries)
     
     for(let entry of this.entries) {
-      console.log(entry);
       if (this.id == entry.user_id) {
         this.entered = true;
       }
@@ -32,6 +32,7 @@ export class GiveawayButtonComponent implements OnInit {
 
   enterGiveaway() {
     this.giveawayService.enterGiveaway(this.id, this.giveawayId);
+    this.entered = true;
 
   }
 

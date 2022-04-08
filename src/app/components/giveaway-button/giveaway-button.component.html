@@ -1,4 +1,18 @@
-<ng-container *ngIf="entries">
-    <button [disabled]="entered" (click)="enterGiveaway()">Enter the giveaway!</button>
+<ng-container *ngIf="giveawayWinner; then showClosed; else showOptions">
 </ng-container>
+<ng-template #showClosed>
+    <h4>The giveaway has closed. Be sure to check the site for the next giveaway.</h4>
+</ng-template>
+<ng-template #showOptions>
+    <ng-container *ngIf="entered; then showEntered; else allowEntry">
+    </ng-container>
+</ng-template>
+
+
+<ng-template #showEntered>
+    <h4>You have entered the giveaway already. Check back later for the winner!</h4>
+</ng-template>
+<ng-template #allowEntry>
+    <button (click)="enterGiveaway()" class="btn btn-primary">Enter giveaway!</button>
+</ng-template>
 
