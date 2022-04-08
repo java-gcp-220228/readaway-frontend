@@ -1,0 +1,37 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "kitty",
+            "password": "password",
+            "email": "test@email.com"
+        },
+        {
+            "id": 2,
+            "username": "username",
+            "password": "1234",
+            "email": "email@email.com"
+        }
+    ],
+    "giveaways": [
+        {
+            "id": 1,
+            "start_time": "1649301882",
+            "end_time": "1649320282",
+            "isbn": "0261103253",
+            "book_title": "Lord of the Rings",
+            "creator_id": 1,
+            "winner_id": null,
+            "entries": [
+                {"user_id": 2,
+                "username": "username"}
+            ]
+        }
+    ],
+    "entries": [
+        {
+            "user_id": 2,
+            "giveaway_id": 1
+        }
+    ]
+}
