@@ -2,9 +2,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'
-import { HttpClientModule } from '@angular/common/http'
+
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,7 +24,6 @@ import { GiveawayDisplayComponent } from './components/giveaway-display/giveaway
 import { GiveawayTableComponent } from './components/giveaway-table/giveaway-table.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GiveawayTimerComponent } from './components/giveaway-timer/giveaway-timer.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GiveawayButtonComponent } from './components/giveaway-button/giveaway-button.component';
 
 
@@ -36,9 +35,9 @@ import { GiveawayButtonComponent } from './components/giveaway-button/giveaway-b
     HeaderComponent,
     AboutComponent,
     CommentComponent,
-    CommentSectionComponent
+    CommentSectionComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
     PageNotFoundComponent,
     GiveawayDisplayComponent,
     GiveawayTableComponent,
@@ -50,12 +49,11 @@ import { GiveawayButtonComponent } from './components/giveaway-button/giveaway-b
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule
-    HttpClientModule
+
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
   bootstrap: [AppComponent]

@@ -9,7 +9,7 @@ const routes: Routes = [
   //{ path: 'giveaways', component: GiveawayTableComponent}
   { path: 'giveaways/:id', component: GiveawayDisplayComponent},
   //{ path: '', redirectTo: '/home', pathMatch: 'full'},
-  { path: '**', component: PageNotFoundComponent}
+  { path: '**', component: PageNotFoundComponent},
   { path: "login", component: LoginComponent},
 //  { path: 'login', redirectTo: "/login", pathMatch: "full" }
 ];
