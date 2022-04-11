@@ -19,13 +19,16 @@ export class UserService {
     this.http = http;
   }
 
-  // need backend functionality?
   logout() {
-    // need to navigate to home page on logout
   }
 
   register() {
-    return this.http.post
+    // first check if username is available, then register user
+
+    //fetch
+
+    //post to register user
+    // post to login
   }
 
   getAllUsers() {
