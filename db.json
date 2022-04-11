@@ -16,11 +16,16 @@
     "giveaways": [
         {
             "id": 1,
-            "start_time": "2022-03-31 15:20:59.963 -0600",
-            "end_time": "2022-03-31 15:21:57.948 -0600",
-            "isbn": 200,
+            "start_time": 1649301882000,
+            "end_time": 1649452507000,
+            "isbn": "0261103253",
+            "book_title": "Lord of the Rings",
             "creator_id": 1,
-            "winner_id": null
+            "winner_username": "kitty",
+            "entries": [
+                {"user_id": 2,
+                "username": "username"}
+            ]
         }
     ],
     "entries": [

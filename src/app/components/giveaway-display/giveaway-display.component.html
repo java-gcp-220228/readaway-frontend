@@ -1,0 +1,38 @@
+
+<div class="d-flex justify-content-center align-items-center h-100">
+    <div>
+    
+        <ng-container *ngIf="currentGiveaway.winner_username; then showWinner; else showTimer">
+        </ng-container>
+    
+        <ng-template #showWinner>
+            <div class="col-md">
+                <img [src]="backgroundImg" alt="https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fGJvb2slMjBjb3ZlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1400&q=60">
+            </div>
+            <h1 class="mb-3">Congratulations, {{currentGiveaway.winner_username}}</h1>
+            <app-giveaway-button [entries]="currentGiveaway.entries" [giveawayId]="currentGiveaway.id" [giveawayWinner]="currentGiveaway.winner_username"></app-giveaway-button>
+        </ng-template>
+        <ng-template #showTimer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md">
+                        <img [src]="backgroundImg" alt="https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fGJvb2slMjBjb3ZlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1400&q=60">
+                    </div>
+                    <div class="col-sm">
+                        <h1 class="mb-3">Enter to win!</h1>
+                    <h3 class="mb-4">{{currentGiveaway.book_title}}</h3>
+                    <app-giveaway-timer [endTimestamp]="+currentGiveaway.end_time" [giveawayId]="currentGiveaway.id"></app-giveaway-timer>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <app-giveaway-button [entries]="currentGiveaway.entries" [giveawayId]="currentGiveaway.id" [giveawayWinner]="currentGiveaway.winner_username"></app-giveaway-button>
+                        </div>
+                    </div>
+                </div>
+            </div>                                       
+        </ng-template>
+                 
+        
+    </div>
+</div>
+    

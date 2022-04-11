@@ -1,0 +1,14 @@
+#footer {
+    background-color: #F5E1DA;
+    color: #40A798;
+}
+
+.footer-icon {
+	margin: 20px 20px;
+	width: 20px;
+	height: 20px;
+}
+#footer p {
+    margin-bottom: 0;
+    padding: 1.25rem;
+}
