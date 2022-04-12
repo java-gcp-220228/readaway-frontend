@@ -22,8 +22,8 @@ import { GiveawayTableComponent } from './components/giveaway-table/giveaway-tab
 import { FooterComponent } from './components/footer/footer.component';
 import { GiveawayTimerComponent } from './components/giveaway-timer/giveaway-timer.component';
 import { GiveawayButtonComponent } from './components/giveaway-button/giveaway-button.component';
-import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
+import { HomeComponent } from './components/home/home.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
