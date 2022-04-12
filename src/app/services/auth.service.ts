@@ -35,7 +35,7 @@ export class AuthService {
       const jwt = res.headers.get('token');
       localStorage.setItem('jwt', jwt);
 
-      sessionStorage.setItem('user_info', JSON.stringify(res.body));
+      localStorage.setItem('user_info', JSON.stringify(res.body));
       console.log(sessionStorage.getItem('user_info'));
       this.router.navigate(['profile']);
     }, err => {
