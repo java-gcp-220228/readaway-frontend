@@ -1,8 +1,4 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Giveaway } from '../interfaces/giveaway';
-import { User } from '../interfaces/User';
-import { AuthService } from '../services/auth.service';
 import { GiveawayService } from '../services/giveaway.service';
 
 // interface FakeGiveaway {
@@ -19,19 +15,13 @@ import { GiveawayService } from '../services/giveaway.service';
 })
 export class GiveawayTableComponent implements OnInit {
 
-  url = 'http://localhost:8081/giveaways';
-
-   giveaways: Giveaway[] = [] ;
-  
-  constructor(private http: HttpClient) { // private giveawayService:GiveawayService 
+  constructor(private giveawayService: GiveawayService) { // private giveawayService:GiveawayService 
     
   }
 
   ngOnInit(): void {
-    this.http.get<Giveaway[]>(this.url).subscribe(res => {
-      this.giveaways = res
-      console.log(this.giveaways)
+    this.giveawayService.getAllGiveaways().subscribe(data => {
+      console.log(data);
     })
   }
 }
-
