@@ -14,6 +14,7 @@ import { GiveawayService } from '../services/giveaway.service';
   styleUrls: ['./giveaway-table.component.css']
 })
 export class GiveawayTableComponent implements OnInit {
+  giveaways: any;
 
   constructor(private giveawayService: GiveawayService) { // private giveawayService:GiveawayService 
     
@@ -22,6 +23,7 @@ export class GiveawayTableComponent implements OnInit {
   ngOnInit(): void {
     this.giveawayService.getAllGiveaways().subscribe(data => {
       console.log(data);
+      this.giveaways = data;
     })
   }
 }
