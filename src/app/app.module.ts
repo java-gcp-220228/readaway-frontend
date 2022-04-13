@@ -27,6 +27,7 @@ import { GiveawayTimerComponent } from './components/giveaway-timer/giveaway-tim
 import { GiveawayButtonComponent } from './components/giveaway-button/giveaway-button.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    CommonModule
 
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
