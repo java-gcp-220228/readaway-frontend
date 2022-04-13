@@ -1,3 +1,4 @@
+import { KeyValuePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { GiveawayService } from '../services/giveaway.service';
 
@@ -22,8 +23,8 @@ export class GiveawayTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.giveawayService.getAllGiveaways().subscribe(data => {
-      console.log(data);
-      this.giveaways = data;
+      const giveaways = data;
+      console.log(giveaways);
     })
   }
 }
