@@ -1,6 +1,11 @@
-#footer {
-    background-color: #F5E1DA;
-    color: #40A798;
+.bg-dark-brown {
+    background-color: #534340;
+    padding-top:50px;
+    padding-left: 45%;
+}
+.icons {
+    padding-right: 120px;
+    padding-bottom: 2%;
 }
 
 .footer-icon {
