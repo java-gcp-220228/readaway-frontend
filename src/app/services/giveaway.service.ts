@@ -16,8 +16,8 @@ export class GiveawayService {
     this.http = httpClient;
   }
 
-  getAllGiveaways() {
-    return this.http.get(this.url, {});
+  getAllGiveaways(): Observable<Giveaway[]> {
+    return this.http.get<Giveaway[]>(this.url, {});
   }
 
   getGiveawayById(id: number): Observable<Giveaway> {

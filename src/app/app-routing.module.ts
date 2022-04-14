@@ -5,11 +5,13 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { GiveawayDisplayComponent } from './components/giveaway-display/giveaway-display.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'about', component: AboutComponent},
   //{ path: 'giveaways', component: GiveawayTableComponent}
+  { path: 'register', component: RegistrationComponent },
   { path: "login", component: LoginComponent},
   { path: 'giveaways/:id', component: GiveawayDisplayComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full'},

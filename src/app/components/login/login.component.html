@@ -17,8 +17,7 @@
 </div> -->
 
 <section class="py-5">
-  <div class="container px-5" id="login-outer">
-      <!-- Contact form-->
+  <div class="container px-5">
       <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
           <div class="text-center mb-5">
               <div class="feature bg-dark bg-gradient text-white rounded-3 mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
@@ -30,7 +29,7 @@
               <div class="col-lg-8 col-xl-6">
                   <form id="contactForm login" [formGroup]="loginForm" class="login-form">
                       <div class="form-floating mb-3">
-                          <input class="form-control" id="username" type="text" formControlName="username" data-sb-validations="required" />
+                          <input class="form-control" id="username" type="text" formControlName="username"/>
                           <label for="username">Username</label>
                           <div class="invalid-feedback" data-sb-feedback="name:required">A username is required.</div>
                       </div>
@@ -40,7 +39,6 @@
                           <div class="invalid-feedback" data-sb-feedback="phone:required">A password is required.</div>
                       </div>
                       <div *ngIf="errorMessage" id="submitErrorMessage"><div class="text-center text-danger mb-3">{{errorMessage}}</div></div>
-                      <!-- Submit Button-->
                       <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton login-btn" type="submit" (click)="login()">Login</button></div>
                   </form>
               </div>
