@@ -1,0 +1,24 @@
+<div id="giveaway-tbl">
+    <table>
+        <thead>Giveaways
+            <tr>
+                <th>Id</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>ISBN</th>
+                <th>Creator Id</th>
+                <th>Winner Id</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let Giveaway of Giveaways">
+                <th>{{ Giveaway.id }}</th>
+                <td>{{ Giveaway.start_time }}</td>
+                <td>{{ Giveaway.end_time }}</td>
+                <td>{{ Giveaway.isbn }}</td>
+                <td>{{ Giveaway.book_title}}</td>
+                <td>{{ Giveaway.creator_id}}</td>  
+                <td>{{ Giveaway.winner_id}}</td>
+        </tbody>
+    </table>
+</div>
