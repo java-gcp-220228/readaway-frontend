@@ -22,7 +22,7 @@ export class GiveawayTableComponent implements OnInit {
     this.giveawayService.getAllGiveaways().subscribe((giveaways) => {
       
       for( let data of giveaways) {
-        data.isbn = 'https://covers.openlibrary.org/b/isbn/' + data.isbn + '-M.jpg';
+        data.isbn = 'https://covers.openlibrary.org/b/isbn/' + data.isbn + '-M.jpg?default=false';
         this.giveaways.push(data);
       }     
     });
