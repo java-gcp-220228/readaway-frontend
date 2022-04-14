@@ -9,3 +9,12 @@
         height: 600px;
     }
 }
+
+
+.book-icon {
+    max-width: 30px;
+}
+
+.headline {
+    text-align: center;
+}

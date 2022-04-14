@@ -1,22 +1,22 @@
-
+<!-- 
 <div class="d-flex justify-content-center align-items-center h-100">
     <div>
     
-        <ng-container *ngIf="currentGiveaway.winner.username; then showWinner; else showTimer">
+        <ng-container *ngIf="giveawayWinner; then showWinner; else showTimer">
         </ng-container>
     
         <ng-template #showWinner>
             <div class="col-md">
-                <img [src]="backgroundImg" alt="https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fGJvb2slMjBjb3ZlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1400&q=60">
+                <img [src]="backgroundImg" onerror="this.onerror=null; this.src='https://storage.googleapis.com/misc-github-images-bucket/book.jpg'" alt=""/>
             </div>
-            <h1 class="mb-3">Congratulations, {{currentGiveaway.winner.username}}</h1>
-            <app-giveaway-button [entries]="currentGiveaway.entries" [giveawayId]="+currentGiveaway.id" [giveawayWinner]="currentGiveaway.winner.username"></app-giveaway-button>
+            <h1 class="mb-3">Congratulations, {{giveawayWinner}}</h1>
+            <app-giveaway-button [entries]="currentGiveaway.entries" [giveawayId]="+currentGiveaway.id" [giveawayWinner]="giveawayWinner"></app-giveaway-button>
         </ng-template>
         <ng-template #showTimer>
             <div class="container">
                 <div class="row">
                     <div class="col-md">
-                        <img [src]="backgroundImg" alt="https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fGJvb2slMjBjb3ZlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1400&q=60">
+                        <img [src]="backgroundImg" onerror="this.onerror=null; this.src='https://storage.googleapis.com/misc-github-images-bucket/book.jpg'" alt=""/>
                     </div>
                     <div class="col-sm">
                         <h1 class="mb-3">Enter to win!</h1>
@@ -25,7 +25,7 @@
                     </div>
                     <div class="row">
                         <div class="col-sm">
-                            <app-giveaway-button [entries]="currentGiveaway.entries" [giveawayId]="+currentGiveaway.id" [giveawayWinner]="currentGiveaway.winner.username"></app-giveaway-button>
+                            <app-giveaway-button [entries]="currentGiveaway.entries" [giveawayId]="+currentGiveaway.id" [giveawayWinner]="giveawayWinner"></app-giveaway-button>
                         </div>
                     </div>
                 </div>
@@ -34,5 +34,62 @@
                  
         
     </div>
-</div>
+</div> -->
+
+<section class="py-5">
+    <div class="container px-5 my-5">
+        <div class="row gx-5">
+            <div class="col-lg-3">
+                <div class="d-flex align-items-center mt-lg-5 mb-4">
+                    <img class="rounded-circle me-3 book-icon" src="https://storage.googleapis.com/misc-github-images-bucket/Intbook.png" alt="happy-book" />
+                    <div class="ms-3">
+                        <div class="fw-bold">Creted By:</div>
+                        <div class="text-muted">{{currentGiveaway.creator.username}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                    <header class="mb-4">
+                        <!-- Post title-->
+                        <h1 class="fw-bolder mb-1">{{currentGiveaway.book_title}}</h1>
+                        <!-- Post meta content-->
+                        <div class="text-muted fst-italic mb-2">Created: {{currentGiveaway.start_time | date}}</div>
+                    </header>
+                    <!-- Preview image figure-->
+                    <ng-container *ngIf="giveawayWinner; then showWinner; else showTimer">
+                    </ng-container>
+                    <ng-template #showWinner>
+                    <figure class="mb-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img class="img-fluid rounded" [src]="backgroundImg" onerror="this.onerror=null; this.src='https://storage.googleapis.com/misc-github-images-bucket/book.jpg'" alt="" />
+                            </div>
+                            <div class="col-md-6 headline">
+                                <h1 class="mb-3">Congratulations, {{giveawayWinner}}!</h1>
+                            <app-giveaway-button [entries]="currentGiveaway.entries" [giveawayId]="+currentGiveaway.id" [giveawayWinner]="giveawayWinner"></app-giveaway-button>
+                            </div>
+                        </div>
+                        </figure>
+                        </ng-template>
+                        <ng-template #showTimer>
+                            <figure class="mb-4"><img class="img-fluid rounded" [src]="backgroundImg" onerror="this.onerror=null; this.src='https://storage.googleapis.com/misc-github-images-bucket/book.jpg'" alt="" />
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md">
+                                    </div>
+                                    <div class="col-sm">
+                                        <h1 class="mb-3">Enter to win!</h1>
+                                    <h3 class="mb-4">{{currentGiveaway.book_title}}</h3>
+                                    <app-giveaway-timer [endTimestamp]="+currentGiveaway.end_time" [giveawayId]="+currentGiveaway.id"></app-giveaway-timer>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <app-giveaway-button [entries]="currentGiveaway.entries" [giveawayId]="+currentGiveaway.id" [giveawayWinner]="giveawayWinner"></app-giveaway-button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>    
+                            </figure>                                  
+                        </ng-template>
+                        <app-comment></app-comment>
     

@@ -1,8 +1,14 @@
 .book-image {
+    margin-left: 5%;
+    margin-right: 5%;
     max-width: 450px;
     max-height: 400px;
 }
 
 .book-icon {
     max-width: 30px;
+}
+
+.table-rows {
+    padding-top: 5%;
 }
