@@ -1,1 +1,50 @@
-<p>giveaway-table works!</p>
+<!-- <div id="giveaway-tbl">
+    <table>
+        <thead>Giveaways
+            <tr>
+                <th>Id</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>ISBN</th>
+                <th>Creator Id</th>
+                <th>Winner Id</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let giveaway of giveaways">
+                <th>{{ giveaway.id }}</th>
+                <td>{{ giveaway.start_time }}</td>
+                <td>{{ giveaway.end_time }}</td>
+                <td>{{ giveaway.isbn }}</td>
+                <td>{{ giveaway.book_title}}</td>
+                <td>{{ giveaway.creator_id}}</td>  
+                <td>{{ giveaway.winner_id}}</td>
+        </tbody>
+    </table>
+</div> -->
+
+
+<div class="row gx-5">
+    <ng-container *ngFor="let giveaway of giveaways">
+        <div class="col-lg-4 mb-5">
+            <div class="card h-100 shadow border-0">
+                <img class="card-img-top book-image" [src]="giveaway.isbn" alt="https://storage.googleapis.com/misc-github-images-bucket/book-image.jpg" />
+                <div class="card-body p-4">
+                    <a class="text-decoration-none link-dark stretched-link" (click) = "giveawayDisplay(giveaway.id)"><h5 class="card-title mb-3">{{giveaway.book_title}}</h5></a>
+                    <p class="card-text mb-0">{{giveaway.end_time  | date}}</p>
+                </div>
+                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                    <div class="d-flex align-items-end justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <img class="rounded-circle me-3 book-icon" src="https://storage.googleapis.com/misc-github-images-bucket/Intbook.png" alt="happy-book" />
+                            <div class="small">
+                                <div class="fw-bold">{{giveaway.creator.username}}</div>
+                                <div class="text-muted">Created: {{giveaway.start_time | date }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

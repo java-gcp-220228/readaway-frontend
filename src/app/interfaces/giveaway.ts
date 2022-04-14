@@ -4,8 +4,14 @@ export interface Giveaway {
     "end_time": string,
     "isbn": string,
     "book_title": string,
-    "creator_id": number,
-    "winner_username": string | null,
+    "creator": {
+        "user_id": number,
+        "username": string
+    },
+    "winner": {
+        "user_id": number,
+        "username": string
+    } | null, 
     "entries": [
             {"user_id": number,
             "username": string}

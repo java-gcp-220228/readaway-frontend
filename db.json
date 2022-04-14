@@ -20,11 +20,33 @@
             "end_time": 1649452507000,
             "isbn": "0261103253",
             "book_title": "Lord of the Rings",
-            "creator_id": 1,
-            "winner_username": "kitty",
+            "creator": {
+                "user_id": 1,
+                "username": "gandalf"
+            },
+            "winner": {
+                "user_id": 2,
+                "username": "kitty"
+            },
             "entries": [
                 {"user_id": 2,
-                "username": "username"}
+                "username": "kitty"}
+            ]
+        },
+        {
+            "id": 2,
+            "start_time": 1649301882000,
+            "end_time": 1649452507000,
+            "isbn": "0261103253",
+            "book_title": "Lord of the Rings",
+            "creator": {
+                "user_id": 1,
+                "username": "gandalf"
+            },
+            "winner": null,
+            "entries": [
+                {"user_id": 2,
+                "username": "kitty"}
             ]
         }
     ],
