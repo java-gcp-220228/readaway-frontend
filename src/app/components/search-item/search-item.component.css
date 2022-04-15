@@ -1,3 +1,9 @@
 .selected {
-    background-color: green;
+    background-color: #FFFBE9;
+    border: 1px solid black;
 }
+
+.container :hover {
+    cursor: pointer;
+}
+

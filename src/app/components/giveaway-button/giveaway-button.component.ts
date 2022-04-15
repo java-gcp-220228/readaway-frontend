@@ -33,7 +33,6 @@ export class GiveawayButtonComponent implements OnInit {
   enterGiveaway() {
     this.giveawayService.enterGiveaway(this.id, this.giveawayId);
     this.entered = true;
-
   }
 
 }

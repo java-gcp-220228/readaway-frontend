@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.userId = sessionStorage.getItem('user_id');
+    this.userId = localStorage.getItem('user_id');
   }
   logout() {
     this.userId = null;

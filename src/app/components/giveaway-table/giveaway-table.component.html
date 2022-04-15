@@ -24,10 +24,10 @@
 </div> -->
 
 
-<div class="row gx-5 table-rows">
+<div class="row table-rows">
     <ng-container *ngFor="let giveaway of giveaways">
-        <div class="col-lg-4 mb-5">
-            <div class="card h-100 shadow border-0 giveaway-link">
+        <div class="col-lg-3 mb-5">
+            <div class="card h-100 shadow border-0 giveaway-link text-center">
                 <img class="card-img-top book-image" [src]="giveaway.isbn" onerror="this.onerror=null; this.src='https://storage.googleapis.com/misc-github-images-bucket/book.jpg'" alt="" />
                 <div class="card-body p-4">
                     <a class="text-decoration-none link-dark stretched-link" (click) = "giveawayDisplay(giveaway.id)"><h5 class="card-title mb-3">{{giveaway.book_title}}</h5></a>

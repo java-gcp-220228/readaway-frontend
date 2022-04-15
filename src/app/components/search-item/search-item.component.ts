@@ -19,7 +19,7 @@ export class SearchItemComponent implements OnInit {
     this.title = this.bookData.title;
     this.author = this.bookData.author_name[0];
     this.isbn = this.bookData.isbn[0];
-    this.imageUrl = "http://covers.openlibrary.org/b/isbn/" + this.isbn + "-S.jpg";
+    this.imageUrl = "http://covers.openlibrary.org/b/isbn/" + this.isbn + "-M.jpg?default=false";
   }
 
 }

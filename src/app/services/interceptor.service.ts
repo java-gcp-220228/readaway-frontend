@@ -10,6 +10,14 @@ export class InterceptorService implements HttpInterceptor {
   constructor() { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const skipIntercept = req.headers.has('skip');
+
+  if (skipIntercept) {
+      req = req.clone({
+          headers: req.headers.delete('skip')
+      });
+      return next.handle(req);
+  }
       req = req.clone({
         setHeaders: {
           'Content-Type': 'application/json',

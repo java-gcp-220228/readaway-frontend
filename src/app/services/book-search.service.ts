@@ -10,6 +10,6 @@ export class BookSearchService {
   constructor(private http: HttpClient) { }
 
   search(bookSearchInput: string): Observable<any> {
-    return this.http.get(`https://openlibrary.org/search.json?title=${encodeURIComponent(bookSearchInput)}`);
+    return this.http.get(`https://openlibrary.org/search.json?title=${encodeURIComponent(bookSearchInput)}`, {headers:{skip:"true"}});
   }
 }
