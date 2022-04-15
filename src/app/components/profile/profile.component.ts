@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  currentUser: Object = {};
 
-  ngOnInit(): void {
+  constructor(private authService: AuthService, private router: Router) { 
+   this.currentUser =  this.authService.getUserInfoFromJwt()
   }
 
+
+  ngOnInit(): void {
+    if(this.currentUser == null) {
+      console.log('no user info')
+    } else {console.log(this.currentUser)}
+  }
+
+  giveawayDisplay(giveawayid: number) {
+    this.router.navigate([`/giveaways/${giveawayid}`]);
+  }
 }
+  
+
