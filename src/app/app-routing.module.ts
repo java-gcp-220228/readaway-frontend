@@ -7,6 +7,7 @@ import { GiveawayTableComponent } from './components/giveaway-table/giveaway-tab
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { GiveawayCreationComponent } from './components/giveaway-creation/giveaway-creation.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'register', component: RegistrationComponent },
   { path: "login", component: LoginComponent},
   { path: 'giveaways/:id', component: GiveawayDisplayComponent},
+  { path: 'giveaway/create', component: GiveawayCreationComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent},
 

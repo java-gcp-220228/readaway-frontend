@@ -1,7 +1,18 @@
-<div>
+<!-- <div>
     <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
 </div>
 <div>
     <textarea [(ngModel)]="commentText"></textarea>
     <button (click)="submit()">Submit</button>
-</div>
+</div> -->
+
+
+<section>
+    <div class="card bg-light">
+        <div class="card-body">
+            <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
+            <div class="mb-4"><textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!" [(ngModel)]="commentText"></textarea></div>
+            <button (click)="submit()" class="btn btn-primary">Submit</button>
+        </div>  
+    </div>
+</section>

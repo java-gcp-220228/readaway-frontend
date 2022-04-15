@@ -1,6 +1,4 @@
 .book-image {
-    margin-left: 5%;
-    margin-right: 5%;
     max-width: 450px;
     max-height: 400px;
 }
@@ -11,4 +9,9 @@
 
 .table-rows {
     padding-top: 5%;
+    padding-left: 5%;
+}
+
+.giveaway-link :hover {
+    cursor: pointer;
 }
