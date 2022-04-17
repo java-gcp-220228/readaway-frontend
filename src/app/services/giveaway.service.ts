@@ -10,7 +10,7 @@ export class GiveawayService {
 
   http: HttpClient;
 
-  url: string = "http://localhost:8081/giveaways"
+  url: string = "http://34.125.87.37:2000/giveaways"
 
   constructor(httpClient: HttpClient) { 
     this.http = httpClient;

@@ -12,12 +12,14 @@ import { User } from '../interfaces/User';
 })
 export class AuthService {
 
+  url: string = "http://34.125.87.37:2000";
+
   loginErrorSubject: Subject<string> = new Subject<string>();
 
   constructor(private http: HttpClient, private router: Router) { }
 
   getUserInfoFromJwt(): Observable<HttpResponse<UserInfo>> {
-    return this.http.get<UserInfo>(`${environment.apiUrl}/test`, {
+    return this.http.get<UserInfo>(`${this.url}/test`, {
       'observe': 'response',
       'headers': {
         'Authorization': `Bearer ${localStorage.getItem('jwt')}`
@@ -26,7 +28,7 @@ export class AuthService {
   }
 
   login(username: string, password: string) {
-    this.http.post<User>(`${environment.apiUrl}/login`, {'username': username, 'password': password},
+    this.http.post<User>(`${this.url}/login`, {'username': username, 'password': password},
     {
       'observe': 'response',
       'headers': { Authorization: `Bearer ${localStorage.getItem('jwt')}` }

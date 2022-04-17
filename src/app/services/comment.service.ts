@@ -7,7 +7,7 @@ import { Comment } from '../interfaces/comment';
 })
 export class CommentService {
 
-  url: string = "http://localhost:8081";
+  url: string = "http://34.125.87.37:2000";
 
   constructor(private http: HttpClient) { }
 
