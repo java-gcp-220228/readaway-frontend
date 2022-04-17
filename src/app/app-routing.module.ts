@@ -22,7 +22,9 @@ const routes: Routes = [
   { path: 'giveaways/winner/:id', component: GiveawayWinnerComponent},
   { path: 'profile', component: ProfileComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full'},
-  { path: '**', component: PageNotFoundComponent},
+  { path: '**', component: PageNotFoundComponent}
+
+
   
 ];
 

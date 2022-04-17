@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Giveaway } from 'src/app/interfaces/giveaway';
 import { GiveawayService } from 'src/app/services/giveaway.service';
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -14,6 +15,7 @@ export class ProfileComponent implements OnInit {
   wonGiveaways: Giveaway[] = [];
   createdGiveaways: Giveaway[] = [];
   username: string;
+
 
 
   constructor(private giveawayService: GiveawayService, private router: Router) { 
@@ -49,3 +51,5 @@ export class ProfileComponent implements OnInit {
   }
 
 }
+  
+
