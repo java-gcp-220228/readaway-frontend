@@ -7,37 +7,21 @@ import { Comment } from '../interfaces/comment';
 })
 export class CommentService {
 
+  url: string = "http://localhost:8081";
+
   constructor(private http: HttpClient) { }
 
-  getComments(giveawayId: number): Comment[] {
-    let comment1: Comment = {
-      "id": 1,
-      "comment_text": "comment",
-      "post_time": new Date().toISOString(),
-      "user_id": 1,
-      "parent_comment_id": 3,
-      "replies": []
-    }
-    let comment2: Comment = {
-      "id": 2,
-      "comment_text": "comment2",
-      "post_time": new Date().toISOString(),
-      "user_id": 1,
-      "giveaway_id": 1,
-      "replies": []
-    }
-    let comment3: Comment = {
-      "id": 3,
-      "comment_text": "comment3",
-      "post_time": new Date().toISOString(),
-      "user_id": 1,
-      "giveaway_id": 1,
-      "replies": [comment1]
-    }
-    return [comment3, comment2];
+  addCommentAsReply(commentId: number, reply: Comment) {
+    this.http.post(`${this.url}/comments/${commentId}/replies`, reply, {
+      'observe': 'response',
+      'headers': { Authorization: `Bearer ${localStorage.getItem('jwt')}`}
+    }).subscribe();
   }
 
-  addComment(comment: Comment) {
-
+  addCommentToGiveaway(giveawayId: number, comment: Comment) {
+    this.http.post(`${this.url}/giveaways/${giveawayId}/comments`, comment, {
+      'observe': 'response',
+      'headers': { Authorization: `Bearer ${localStorage.getItem('jwt')}`}
+    }).subscribe();
   }
 }

@@ -11,11 +11,9 @@ import { Router } from '@angular/router';
 
 export class UserService {
 
-  http: HttpClient;
-
   registerErrorSubject: Subject<string> = new Subject<string>();
 
-  constructor(http: HttpClient, private router: Router) {  }
+  constructor(private http: HttpClient, private router: Router) {  }
 
   logout() {
     localStorage.removeItem('jwt');
@@ -32,7 +30,7 @@ export class UserService {
       const jwt = res.headers.get('token');
       localStorage.setItem('jwt', jwt);
 
-      localStorage.setItem('user_info', JSON.stringify(res.body));
+      localStorage.setItem('user_id', res.body.id.toString());
       console.log(sessionStorage.getItem('user_info'));
       this.router.navigate(['profile']);
     }, err => {
