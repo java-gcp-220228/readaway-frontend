@@ -1,0 +1,46 @@
+<!-- <form (ngSubmit)="onSubmit()">
+    <div>
+        <label for="book-search">Find Book</label>
+        <input type="text" name="book-search" [(ngModel)]="bookSearchInput" id="book-search" />
+        <button type="button" (click)="search()">Search</button>
+    </div>
+    <div>
+        <app-search-item *ngFor="let bookData of bookDataItems" [bookData]="bookData" [selectedIsbn]="selectedIsbn" (click)="selectBook(bookData)"></app-search-item>
+    </div>
+    <div>
+        <label for="end-time">End Time</label>
+        <input type="datetime-local" name="end-time" [(ngModel)]="endTime" id="end-time" />
+    </div>
+    <input type="submit" value="Create Giveaway" />
+</form> -->
+
+<section class="py-5">
+    <div class="container px-5">
+        <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
+            <div class="text-center mb-5">
+                <h1 class="fw-bolder">Create a Giveaway</h1>
+                <p class="lead fw-normal text-muted mb-0">Search for your book, set a date, and let the giveaway commence!</p>
+            </div>
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-8 col-xl-6">
+                    <form id="contactForm" (ngSubmit)="onSubmit()">
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="book-search" type="text" name="book-search" [(ngModel)]="bookSearchInput" />
+                            <label for="book-search">Find a Book</label>
+                            <button type="button" class="btn btn-outline-primary btn-sm creation-btn" (click)="search()">Search</button>
+                            <div>
+                                <app-search-item *ngFor="let bookData of bookDataItems" [bookData]="bookData" [selectedIsbn]="selectedIsbn" (click)="selectBook(bookData)"></app-search-item>
+                            </div>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="datetime-local" name="end-time" [(ngModel)]="endTime" id="end-time" class="form-control">
+                            <label for="end-time">End Time: mm//dd//yyyy 00:00 AM/PM</label>
+                        </div>
+                        <div class="d-grid"><input type="submit" class="btn btn-primary btn-lg"value="Create Giveaway" /></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

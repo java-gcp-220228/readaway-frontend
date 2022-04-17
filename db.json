@@ -1,0 +1,59 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "kitty",
+            "password": "password",
+            "email": "test@email.com"
+        },
+        {
+            "id": 2,
+            "username": "username",
+            "password": "1234",
+            "email": "email@email.com"
+        }
+    ],
+    "giveaways": [
+        {
+            "id": 1,
+            "start_time": 1649301882000,
+            "end_time": 1649452507000,
+            "isbn": "0261103253",
+            "book_title": "Lord of the Rings",
+            "creator": {
+                "user_id": 1,
+                "username": "gandalf"
+            },
+            "winner": {
+                "user_id": 2,
+                "username": "kitty"
+            },
+            "entries": [
+                {"user_id": 2,
+                "username": "kitty"}
+            ]
+        },
+        {
+            "id": 2,
+            "start_time": 1649301982000,
+            "end_time": 1649453507000,
+            "isbn": "9781423116967",
+            "book_title": "Percy Jackson: The Lightning Thief",
+            "creator": {
+                "user_id": 1,
+                "username": "apollo_sun_god"
+            },
+            "winner": null,
+            "entries": [
+                {"user_id": 2,
+                "username": "kitty"}
+            ]
+        }
+    ],
+    "entries": [
+        {
+            "user_id": 2,
+            "giveaway_id": 1
+        }
+    ]
+}

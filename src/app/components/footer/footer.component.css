@@ -1,0 +1,26 @@
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 8rem;
+}
+
+.bg-dark-brown {
+    background-color: #534340;
+    padding-top:50px;
+    padding-left: 45%;
+}
+.icons {
+    padding-right: 20%;
+    padding-bottom: 2%;
+}
+
+.footer-icon {
+	margin: 20px 20px;
+	width: 20px;
+	height: 20px;
+}
+#footer p {
+    margin-bottom: 0;
+    padding: 1.25rem;
+}
