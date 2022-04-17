@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Entry } from 'src/app/interfaces/entry';
+import { User } from 'src/app/interfaces/User';
 import { GiveawayService } from 'src/app/services/giveaway.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { GiveawayService } from 'src/app/services/giveaway.service';
 })
 export class GiveawayButtonComponent implements OnInit {
 
-  @Input() entries: Entry[];
+  @Input() entries: User[];
   @Input() giveawayId: number;
   @Input() giveawayWinner: string | null;
 
@@ -24,7 +24,7 @@ export class GiveawayButtonComponent implements OnInit {
     console.log(this.entries)
     
     for(let entry of this.entries) {
-      if (this.id == entry.user_id) {
+      if (this.id == entry.id) {
         this.entered = true;
       }
     }

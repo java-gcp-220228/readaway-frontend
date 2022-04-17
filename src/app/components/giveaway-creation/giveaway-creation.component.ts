@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Giveaway } from 'src/app/interfaces/giveaway';
 import { BookSearchService } from 'src/app/services/book-search.service';
 import { GiveawayService } from 'src/app/services/giveaway.service';
-import { Giveaway } from 'src/app/interfaces/giveaway';
 
 @Component({
   selector: 'app-giveaway-creation',
@@ -40,11 +40,11 @@ export class GiveawayCreationComponent implements OnInit {
     }
 
     let giveaway: Giveaway = {
-      "end_time": this.endTime,
+      "endTime": new Date(this.endTime).toISOString(),
       "isbn": this.selectedIsbn,
-      "creator": {"user_id": +localStorage.getItem('user_id'), "username": localStorage.getItem('username')}
+      "creator": {"user_id": +localStorage.getItem("user_id")}
     }
-
+    
     this.giveawayService.addGiveaway(giveaway);
   }
 

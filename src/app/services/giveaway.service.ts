@@ -25,9 +25,18 @@ export class GiveawayService {
 
   }
 
+  addGiveaway(giveaway: Giveaway) {
+    this.http.post(this.url, giveaway, {
+      'observe': 'response',
+      'headers': { Authorization: `Bearer ${localStorage.getItem('jwt')}`}
+    }).subscribe();
+  }
 
   enterGiveaway(userId: number, giveawayId: number) {
-    this.http.post(`${this.url}/${giveawayId}`, userId)
+    this.http.post(`${this.url}/${giveawayId}/entries/${userId}`, {}, {
+      'observe': 'response',
+      'headers': { Authorization: `Bearer ${localStorage.getItem('jwt')}`}
+    }).subscribe();
   }
 
   addGiveaway(giveaway: Giveaway) {

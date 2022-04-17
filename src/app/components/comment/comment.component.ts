@@ -24,7 +24,7 @@ export class CommentComponent implements OnInit {
   submit() {
     let commentToAdd: Comment = {
       "text": this.commentText,
-      "user": {"id": +localStorage.getItem('user_id')}
+      "user": {"id": +localStorage.getItem("user_id")},
     }
     this.commentService.addCommentAsReply(this.comment.id, commentToAdd);
   }
