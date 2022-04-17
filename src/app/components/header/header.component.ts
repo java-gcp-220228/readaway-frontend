@@ -8,12 +8,13 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
   userId: string;
+
+
   constructor(private authService: AuthService) {
-  
+    this.authService.getLoggedInName.subscribe(userIn => this.signIn(userIn));
    }
 
   ngOnInit(): void {
-    this.authService.getLoggedInName.subscribe(userIn => this.signIn(userIn));
     this.userId = localStorage.getItem('user_id');
   }
 

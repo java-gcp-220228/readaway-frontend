@@ -53,7 +53,7 @@
                         <!-- Post title-->
                         <h1 class="fw-bolder mb-1">{{currentGiveaway.book_title}}</h1>
                         <!-- Post meta content-->
-                        <div class="text-muted fst-italic mb-2">Created: {{currentGiveaway.startTime}}</div>
+                        <div class="text-muted fst-italic mb-2">Created: {{createTime | date}}</div>
                     </header>
                     <!-- Preview image figure-->
                     <ng-container *ngIf="giveawayWinner; then showWinner; else showTimer">
@@ -82,16 +82,18 @@
                                         <h1 class="mb-3">Enter to win!</h1>
                                     <h3 class="mb-4">{{currentGiveaway.book_title}}</h3>
                                     <app-giveaway-timer [endTimestamp]="currentGiveaway.endTime" [giveawayId]="+currentGiveaway.id"></app-giveaway-timer>
-                                    </div>
-                                  
+                                    </div>          
                                 </div>
                             </div>    
                             </figure>
                             <div class="row">
                                 <div class="col-sm">
-                                    <app-giveaway-button [entries]="currentGiveaway.entrants" [giveawayId]="+currentGiveaway.id" [giveawayWinner]="giveawayWinner"></app-giveaway-button>
+                                    <app-giveaway-button [entries]="currentGiveaway.entrants" [giveawayId]="+currentGiveaway.id" [giveawayWinner]="giveawayWinner" [creatorId]="currentGiveaway.creator.id"></app-giveaway-button>
                                 </div>
                             </div>                                 
                         </ng-template>
-                        <app-comment-section></app-comment-section>
+                        <div>
+                            <h5>Love the book? Leave a comment!</h5>
+                        </div>
+                        <app-comment-section  [giveawayId]="currentGiveaway.id" [comments]="currentGiveaway.comments"></app-comment-section>
     

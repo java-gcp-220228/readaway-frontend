@@ -9,6 +9,7 @@ import { AboutComponent } from './components/about/about.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { GiveawayCreationComponent } from './components/giveaway-creation/giveaway-creation.component';
 import { GiveawayWinnerComponent } from './components/giveaway-winner/giveaway-winner.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'giveaways/:id', component: GiveawayDisplayComponent},
   { path: 'giveaway/create', component: GiveawayCreationComponent},
   { path: 'giveaways/winner/:id', component: GiveawayWinnerComponent},
+  { path: 'profile', component: ProfileComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent},
   

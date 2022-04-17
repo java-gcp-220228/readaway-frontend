@@ -25,6 +25,14 @@ export class GiveawayService {
 
   }
 
+  getGiveawayByCreatorId(id: number): Observable<Giveaway[]> {
+    return this.http.get<Giveaway[]>(`http://34.125.87.37:2000/users/${id}/giveaways`)
+  }
+
+  getGiveawaysByWinnerId(id: number) : Observable<Giveaway[]> {
+    return this.http.get<Giveaway[]>(`${this.url}/winners/${id}`)
+  }
+
   addGiveaway(giveaway: Giveaway) {
     this.http.post(this.url, giveaway, {
       'observe': 'response',

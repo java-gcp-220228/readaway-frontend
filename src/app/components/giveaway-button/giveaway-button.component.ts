@@ -13,19 +13,26 @@ export class GiveawayButtonComponent implements OnInit {
   @Input() entries: User[];
   @Input() giveawayId: number;
   @Input() giveawayWinner: string | null;
+  @Input() creatorId: number;
 
+  creator: boolean = false;
   entered: boolean = false;
-  id: number = +localStorage.getItem('user_id');
+  id: number;
+ 
 
   
 
   constructor(private giveawayService: GiveawayService, private router: Router) { }
 
-  ngOnInit(): void {   
+  ngOnInit(): void {  
+    this.id = +localStorage.getItem('user_id'); 
     for(let entry of this.entries) {
       if (this.id == entry.id) {
         this.entered = true;
       }
+    }
+    if (this.id == this.creatorId ) {
+      this.creator = true;
     }
   }
 

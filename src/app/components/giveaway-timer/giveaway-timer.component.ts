@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { GiveawayService } from 'src/app/services/giveaway.service';
 import { timer } from 'rxjs';
 import { Router } from '@angular/router';
@@ -17,42 +17,53 @@ export class GiveawayTimerComponent implements OnInit {
   hours: number;
   mins: number;
   seconds: number;
+  x: any;
 
-  x = setInterval(()=> {
-    let difference: number = Date.parse(this.endTimestamp) - Date.now();
-    
 
-    this.days = Math.floor(difference/1000/60/60/24);
 
-    difference -= this.days*1000*60*60*24;
-
-    this.hours = Math.floor(difference/1000/60/60);
-    difference -= this.hours*1000*60*60;
-
-    this.mins = Math.floor(difference/1000/60);
-    difference -= this.mins*1000*60;
-
-    this.seconds = Math.floor(difference/1000);
-    
-    if(difference <= 0 ) {
-      clearInterval(this.x);
-      this.declareWinner();
-    }
-   
-  }, 1000);
 
   constructor(private giveawayService: GiveawayService, private router: Router) { 
-    console.log(this.endTimestamp);
-    console.log(Date.parse(this.endTimestamp));
   }
 
   ngOnInit(): void {
+ 
+   
+      this.x = setInterval(()=> {
+      let d = new Date();
+      let localTime = d.getTime();
+      let localOffset = d.getTimezoneOffset() * 60000;
+      let date = localTime + localOffset;
+      let difference = Date.parse(this.endTimestamp) - date;
+    
+    
+
+      this.days = Math.floor(difference/1000/60/60/24);
+      difference -= this.days*1000*60*60*24;
+  
+      this.hours = Math.floor(difference/1000/60/60);
+      difference -= this.hours*1000*60*60;
+  
+      this.mins = Math.floor(difference/1000/60);
+      difference -= this.mins*1000*60;
+  
+      this.seconds = Math.floor(difference/1000);
+
+      
+      if(this.days < 0 ) {
+        clearInterval(this.x);
+        this.reloadPage();
+      }
+     
+    }, 1000);
+    
   }
 
-  declareWinner(){
-    this.router.navigate([`/giveaways/winner/${this.giveawayId}`]);
+  reloadPage() {
+    // this.router.navigate([`giveaways/${this.giveawayId}`]);
+    location.reload();
   }
-
-
+  ngOnDestroy() {
+    clearInterval(this.x);
+  }
 
 }

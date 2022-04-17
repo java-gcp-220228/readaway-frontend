@@ -9,7 +9,7 @@ import { CommentService } from 'src/app/services/comment.service';
 })
 export class CommentSectionComponent implements OnInit {
   @Input() giveawayId!: number;
-  @Input() comments: Comment[] | any;
+  @Input() comments!: Comment[];
   commentText!: string;
 
   constructor(private commentService: CommentService) { }
@@ -20,8 +20,10 @@ export class CommentSectionComponent implements OnInit {
   submit() {
     let commentToAdd: Comment = {
       "text": this.commentText,
-      "user": JSON.parse(localStorage.getItem('user_info'))
-
+      "user": {"id": +localStorage.getItem("user_id")},
+    }
+    this.commentService.addCommentToGiveaway(this.giveawayId, commentToAdd);
+    location.reload();
   }
-}
+
 }

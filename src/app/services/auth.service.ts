@@ -38,6 +38,7 @@ export class AuthService {
       localStorage.setItem('jwt', jwt);
 
       localStorage.setItem('user_id', res.body.id.toString());
+      localStorage.setItem('username', res.body.username);
       let user : UserInfo = {
         "userId" : res.body.id,
         "username" : res.body.username,

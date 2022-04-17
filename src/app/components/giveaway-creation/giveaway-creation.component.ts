@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Giveaway } from 'src/app/interfaces/giveaway';
 import { BookSearchService } from 'src/app/services/book-search.service';
 import { GiveawayService } from 'src/app/services/giveaway.service';
@@ -14,7 +15,7 @@ export class GiveawayCreationComponent implements OnInit {
   bookDataItems: any[] = [];
   selectedIsbn!: string;
 
-  constructor(private bookSearchService: BookSearchService, private giveawayService: GiveawayService) { }
+  constructor(private bookSearchService: BookSearchService, private giveawayService: GiveawayService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -42,11 +43,11 @@ export class GiveawayCreationComponent implements OnInit {
     let giveaway: Giveaway = {
       "endTime": new Date(this.endTime).toISOString(),
       "isbn": this.selectedIsbn,
-      "creator": JSON.parse(localStorage.getItem('user_info')),
+      "creator": {"id": +localStorage.getItem("user_id")}
     }
-    console.log(giveaway);
     
     this.giveawayService.addGiveaway(giveaway);
+    this.router.navigate(["giveaways"])
   }
 
 }
