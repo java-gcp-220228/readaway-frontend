@@ -15,17 +15,15 @@ export class CommentSectionComponent implements OnInit {
   constructor(private commentService: CommentService) { }
 
   ngOnInit(): void {
-    this.comments = this.commentService.getComments(this.giveawayId);
+
   }
 
   submit() {
     let commentToAdd: Comment = {
-      "comment_text": this.commentText,
-      "post_time": new Date().toISOString(),
-      "user_id": 1, //TODO get user id
-      "giveaway_id": this.giveawayId
+      "text": this.commentText,
+      "user": {"id": +localStorage.getItem('user_id')}
     }
-    this.commentService.addComment(commentToAdd);
+    this.commentService.addCommentToGiveaway(this.giveawayId, commentToAdd);
   }
 
 }

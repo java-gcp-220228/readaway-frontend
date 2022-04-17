@@ -1,18 +1,18 @@
 export interface Giveaway {
-    "id": number,
-    "start_time": string,
+    "id"?: number,
+    "start_time"?: string,
     "end_time": string,
     "isbn": string,
-    "book_title": string,
+    "book_title"?: string,
     "creator": {
         "user_id": number,
         "username": string
     },
-    "winner": {
+    "winner"?: {
         "user_id": number,
         "username": string
     } | null, 
-    "entries": [
+    "entries"?: [
             {"user_id": number,
             "username": string}
         ]

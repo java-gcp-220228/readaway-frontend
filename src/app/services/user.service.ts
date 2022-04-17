@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { User } from '../interfaces/User';
-import { environment } from '../../environments/environment'
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -23,7 +22,7 @@ export class UserService {
   }
 
   register(email: string, username: string, password: string) {
-    this.http.post<User>(`${environment.apiUrl}/register`, { email: email, username: username, password: password},
+    this.http.post<User>(`http://localhost:8081/register`, { email: email, username: username, password: password},
     {
       'observe': 'response',
       'headers': { Authorization: `Bearer ${localStorage.getItem('jwt')}` }
@@ -42,6 +41,6 @@ export class UserService {
   }
 
   getAllUsers() {
-    return this.http.get<User[]>(`${environment.apiUrl}/users`)
+    return this.http.get<User[]>(`http://localhost:8081/users`)
   }
 }

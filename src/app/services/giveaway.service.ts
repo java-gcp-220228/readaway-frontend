@@ -29,4 +29,8 @@ export class GiveawayService {
   enterGiveaway(userId: number, giveawayId: number) {
     this.http.post(`${this.url}/${giveawayId}`, userId)
   }
+
+  addGiveaway(giveaway: Giveaway) {
+    
+  }
 }

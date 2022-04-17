@@ -19,8 +19,6 @@ const routes: Routes = [
   { path: 'giveaway/create', component: GiveawayCreationComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent},
-
-//  { path: 'login', redirectTo: "/login", pathMatch: "full" }
   
 ];
 

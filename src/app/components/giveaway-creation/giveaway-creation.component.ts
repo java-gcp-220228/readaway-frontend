@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookSearchService } from 'src/app/services/book-search.service';
+import { GiveawayService } from 'src/app/services/giveaway.service';
+import { Giveaway } from 'src/app/interfaces/giveaway';
 
 @Component({
   selector: 'app-giveaway-creation',
@@ -12,7 +14,7 @@ export class GiveawayCreationComponent implements OnInit {
   bookDataItems: any[] = [];
   selectedIsbn!: string;
 
-  constructor(private bookSearchService: BookSearchService) { }
+  constructor(private bookSearchService: BookSearchService, private giveawayService: GiveawayService) { }
 
   ngOnInit(): void {
   }
@@ -37,7 +39,13 @@ export class GiveawayCreationComponent implements OnInit {
       return;
     }
 
-    // TODO create giveaway object and send to giveaway service
+    let giveaway: Giveaway = {
+      "end_time": this.endTime,
+      "isbn": this.selectedIsbn,
+      "creator": {"user_id": +localStorage.getItem('user_id'), "username": localStorage.getItem('username')}
+    }
+
+    this.giveawayService.addGiveaway(giveaway);
   }
 
 }

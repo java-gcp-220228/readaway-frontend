@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { UserInfo } from '../interfaces/UserInfo';
@@ -17,7 +16,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
   getUserInfoFromJwt(): Observable<HttpResponse<UserInfo>> {
-    return this.http.get<UserInfo>(`${environment.apiUrl}/test`, {
+    return this.http.get<UserInfo>(`http://localhost:8081/test`, {
       'observe': 'response',
       'headers': {
         'Authorization': `Bearer ${localStorage.getItem('jwt')}`
@@ -26,7 +25,7 @@ export class AuthService {
   }
 
   login(username: string, password: string) {
-    this.http.post<User>(`${environment.apiUrl}/login`, {'username': username, 'password': password},
+    this.http.post<User>(`http://localhost:8081/login`, {'username': username, 'password': password},
     {
       'observe': 'response',
       'headers': { Authorization: `Bearer ${localStorage.getItem('jwt')}` }
