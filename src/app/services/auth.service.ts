@@ -35,6 +35,12 @@ export class AuthService {
       localStorage.setItem('jwt', jwt);
 
       localStorage.setItem('user_id', res.body.id.toString());
+      let user : UserInfo = {
+        "userId" : res.body.id,
+        "username" : res.body.username,
+        "email" : res.body.email
+      }
+      localStorage.setItem('user_info', user.toString());
       console.log(sessionStorage.getItem('user_info'));
       this.router.navigate(['profile']);
     }, err => {

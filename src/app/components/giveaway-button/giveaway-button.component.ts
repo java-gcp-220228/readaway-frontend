@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { User } from 'src/app/interfaces/User';
+import { Router } from '@angular/router';
+import { UserInfo } from 'src/app/interfaces/UserInfo';
 import { GiveawayService } from 'src/app/services/giveaway.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { GiveawayService } from 'src/app/services/giveaway.service';
 })
 export class GiveawayButtonComponent implements OnInit {
 
-  @Input() entries: User[];
+  @Input() entries: UserInfo[];
   @Input() giveawayId: number;
   @Input() giveawayWinner: string | null;
 
@@ -18,13 +19,11 @@ export class GiveawayButtonComponent implements OnInit {
 
   
 
-  constructor(private giveawayService: GiveawayService) { }
+  constructor(private giveawayService: GiveawayService, private router: Router) { }
 
-  ngOnInit(): void {
-    console.log(this.entries)
-    
+  ngOnInit(): void {   
     for(let entry of this.entries) {
-      if (this.id == entry.id) {
+      if (this.id == entry.userId) {
         this.entered = true;
       }
     }
@@ -33,6 +32,9 @@ export class GiveawayButtonComponent implements OnInit {
   enterGiveaway() {
     this.giveawayService.enterGiveaway(this.id, this.giveawayId);
     this.entered = true;
+  }
+  login() {
+    this.router.navigate(["/login"]);
   }
 
 }

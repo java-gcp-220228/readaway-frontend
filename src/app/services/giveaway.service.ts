@@ -39,7 +39,4 @@ export class GiveawayService {
     }).subscribe();
   }
 
-  addGiveaway(giveaway: Giveaway) {
-    
-  }
 }

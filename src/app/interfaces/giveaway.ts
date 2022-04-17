@@ -9,5 +9,6 @@ export interface Giveaway {
     "book_title"?: string,
     "creator": UserInfo,
     "winner"?: UserInfo | null, 
-    "entries"?: UserInfo[]
+    "entries"?: UserInfo[],
+    "comments"?: Comment[]
 }

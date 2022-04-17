@@ -46,7 +46,7 @@ export class GiveawayTimerComponent implements OnInit {
   }
 
   declareWinner(){
-    this.router.navigate([`/giveaways/${this.giveawayId}`]);
+    this.router.navigate([`/giveaways/winner/${this.giveawayId}`]);
   }
 
 

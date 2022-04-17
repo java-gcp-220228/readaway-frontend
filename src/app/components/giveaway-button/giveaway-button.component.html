@@ -13,6 +13,14 @@
     <h4>You have entered the giveaway! Check back later for the winner!</h4>
 </ng-template>
 <ng-template #allowEntry>
+    <ng-container *ngIf="id; then showEnterGiveaway; else showLogin"></ng-container>
+    
+</ng-template>
+<ng-template #showEnterGiveaway>
     <button (click)="enterGiveaway()" class="btn btn-primary btn-lg giveaway-btn">Enter giveaway!</button>
+</ng-template>
+<ng-template #showLogin>
+    <p>You must be logged in to enter.</p>
+    <button (click)="login()" class="btn btn-primary btn-lg giveaway-btn">Login</button>
 </ng-template>
 

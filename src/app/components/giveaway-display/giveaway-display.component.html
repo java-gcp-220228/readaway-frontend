@@ -53,7 +53,7 @@
                         <!-- Post title-->
                         <h1 class="fw-bolder mb-1">{{currentGiveaway.book_title}}</h1>
                         <!-- Post meta content-->
-                        <div class="text-muted fst-italic mb-2">Created: {{currentGiveaway.startTime | date}}</div>
+                        <div class="text-muted fst-italic mb-2">Created: {{currentGiveaway.start_time | date}}</div>
                     </header>
                     <!-- Preview image figure-->
                     <ng-container *ngIf="giveawayWinner; then showWinner; else showTimer">
@@ -66,7 +66,7 @@
                             </div>
                             <div class="col-md-6 headline">
                                 <h1 class="mb-3">Congratulations, {{giveawayWinner}}!</h1>
-                            <app-giveaway-button [entries]="currentGiveaway.entrants" [giveawayId]="+currentGiveaway.id" [giveawayWinner]="giveawayWinner"></app-giveaway-button>
+                            <app-giveaway-button [entries]="currentGiveaway.entries" [giveawayId]="+currentGiveaway.id" [giveawayWinner]="giveawayWinner"></app-giveaway-button>
                             </div>
                         </div>
                         </figure>
@@ -81,7 +81,7 @@
                                     <div class="col-md-6">
                                         <h1 class="mb-3">Enter to win!</h1>
                                     <h3 class="mb-4">{{currentGiveaway.book_title}}</h3>
-                                    <app-giveaway-timer [endTimestamp]="+currentGiveaway.endTime" [giveawayId]="+currentGiveaway.id"></app-giveaway-timer>
+                                    <app-giveaway-timer [endTimestamp]="+currentGiveaway.end_time" [giveawayId]="+currentGiveaway.id"></app-giveaway-timer>
                                     </div>
                                   
                                 </div>
@@ -89,7 +89,7 @@
                             </figure>
                             <div class="row">
                                 <div class="col-sm">
-                                    <app-giveaway-button [entries]="currentGiveaway.entrants" [giveawayId]="+currentGiveaway.id" [giveawayWinner]="giveawayWinner"></app-giveaway-button>
+                                    <app-giveaway-button [entries]="currentGiveaway.entries" [giveawayId]="+currentGiveaway.id" [giveawayWinner]="giveawayWinner"></app-giveaway-button>
                                 </div>
                             </div>                                 
                         </ng-template>
