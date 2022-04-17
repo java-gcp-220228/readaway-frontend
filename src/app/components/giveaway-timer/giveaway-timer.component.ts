@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class GiveawayTimerComponent implements OnInit {
 
-  @Input() endTimestamp: number;
+  @Input() endTimestamp: string;
   @Input() giveawayId: number;
 
   days: number;
@@ -19,7 +19,7 @@ export class GiveawayTimerComponent implements OnInit {
   seconds: number;
 
   x = setInterval(()=> {
-    let difference: number = this.endTimestamp - Date.now();
+    let difference: number = Date.parse(this.endTimestamp) - Date.now();
 
     this.days = Math.floor(difference/1000/60/60/24);
 
