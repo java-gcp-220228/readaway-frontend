@@ -43,8 +43,8 @@ export class GiveawayCreationComponent implements OnInit {
       "endTime": new Date(this.endTime).toISOString(),
       "isbn": this.selectedIsbn,
       "creator": JSON.parse(localStorage.getItem('user_info')),
-      "comments": [],
     }
+    console.log(giveaway);
     
     this.giveawayService.addGiveaway(giveaway);
   }

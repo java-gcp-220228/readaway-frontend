@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserInfo } from 'src/app/interfaces/UserInfo';
+import { User } from 'src/app/interfaces/User';
 import { GiveawayService } from 'src/app/services/giveaway.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { GiveawayService } from 'src/app/services/giveaway.service';
 })
 export class GiveawayButtonComponent implements OnInit {
 
-  @Input() entries: UserInfo[];
+  @Input() entries: User[];
   @Input() giveawayId: number;
   @Input() giveawayWinner: string | null;
 
@@ -23,7 +23,7 @@ export class GiveawayButtonComponent implements OnInit {
 
   ngOnInit(): void {   
     for(let entry of this.entries) {
-      if (this.id == entry.userId) {
+      if (this.id == entry.id) {
         this.entered = true;
       }
     }
