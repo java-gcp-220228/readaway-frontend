@@ -1,13 +1,14 @@
+import { Comment } from "./comment"
+import { User } from "./User"
+
 export interface Giveaway {
-    "id": number,
-    "start_time": string,
-    "end_time": string,
+    "id"?: number,
+    "startTime"?: string,
+    "endTime": string,
     "isbn": string,
-    "book_title": string,
-    "creator_id": number,
-    "winner_id": number | null,
-    "entries": [
-            {"user_id": number,
-            "username": string}
-        ]
+    "book_title"?: string,
+    "creator": User,
+    "winner"?: User | null,
+    "comments"?: Comment[], 
+    "entrants"?: User[]
 }
