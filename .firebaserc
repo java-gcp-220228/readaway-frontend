@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "readaway-site": {
+      "hosting": {
+        "readaway-ui": [
+          "readaway-site"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "readaway-site"
+  }
+}

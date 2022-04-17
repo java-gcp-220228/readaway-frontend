@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { User } from '../interfaces/User';
-import { environment } from '../../environments/environment'
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -11,11 +10,11 @@ import { Router } from '@angular/router';
 
 export class UserService {
 
-  http: HttpClient;
+  url: string = "http://34.125.87.37:2000";
 
   registerErrorSubject: Subject<string> = new Subject<string>();
 
-  constructor(http: HttpClient, private router: Router) {  }
+  constructor(private http: HttpClient, private router: Router) {  }
 
   logout() {
     localStorage.removeItem('jwt');
@@ -23,7 +22,7 @@ export class UserService {
   }
 
   register(email: string, username: string, password: string) {
-    this.http.post<User>(`${environment.apiUrl}/register`, { email: email, username: username, password: password},
+    this.http.post<User>(`http://34.125.87.37:2000/register`, { email: email, username: username, password: password},
     {
       'observe': 'response',
       'headers': { Authorization: `Bearer ${localStorage.getItem('jwt')}` }
@@ -32,7 +31,7 @@ export class UserService {
       const jwt = res.headers.get('token');
       localStorage.setItem('jwt', jwt);
 
-      localStorage.setItem('user_info', JSON.stringify(res.body));
+      localStorage.setItem('user_id', res.body.id.toString());
       console.log(sessionStorage.getItem('user_info'));
       this.router.navigate(['profile']);
     }, err => {
@@ -42,6 +41,6 @@ export class UserService {
   }
 
   getAllUsers() {
-    return this.http.get<User[]>(`${environment.apiUrl}/users`)
+    return this.http.get<User[]>(`http://34.125.87.37:2000/users`)
   }
 }

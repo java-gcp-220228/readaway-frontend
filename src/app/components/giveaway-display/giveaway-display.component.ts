@@ -15,9 +15,10 @@ export class GiveawayDisplayComponent implements OnInit {
 
 
   giveawayRouteId: number;
-  currentGiveaway: Giveaway;
+  currentGiveaway!: Giveaway;
   backgroundImg: string;
   giveawayWinner: string | null;
+  createTime: string;
 
   constructor(private giveawayService: GiveawayService, private route:ActivatedRoute,
      private router:Router) {
@@ -30,8 +31,9 @@ export class GiveawayDisplayComponent implements OnInit {
       this.giveawayRouteId = +params.get('id');
     })
     this.giveawayService.getGiveawayById(this.giveawayRouteId).subscribe((giveaway)=>{
-
+        
         this.currentGiveaway = giveaway;
+        this.createTime = new Date(giveaway.startTime).toLocaleString();
         this.backgroundImg = 'https://covers.openlibrary.org/b/isbn/' + this.currentGiveaway.isbn + '-L.jpg?default=false';
         this.giveawayWinner = giveaway.winner.username;
     

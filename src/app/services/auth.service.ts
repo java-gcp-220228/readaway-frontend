@@ -1,6 +1,5 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { UserInfo } from '../interfaces/UserInfo';
@@ -11,13 +10,16 @@ import { User } from '../interfaces/User';
   providedIn: 'root'
 })
 export class AuthService {
+  @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
+
+  url: string = "http://34.125.87.37:2000";
 
   loginErrorSubject: Subject<string> = new Subject<string>();
 
   constructor(private http: HttpClient, private router: Router) { }
 
   getUserInfoFromJwt(): Observable<HttpResponse<UserInfo>> {
-    return this.http.get<UserInfo>(`${environment.apiUrl}/test`, {
+    return this.http.get<UserInfo>(`http://34.125.87.37:2000/test`, {
       'observe': 'response',
       'headers': {
         'Authorization': `Bearer ${localStorage.getItem('jwt')}`
@@ -26,7 +28,7 @@ export class AuthService {
   }
 
   login(username: string, password: string) {
-    this.http.post<User>(`${environment.apiUrl}/login`, {'username': username, 'password': password},
+    this.http.post<User>(`http://34.125.87.37:2000/login`, {'username': username, 'password': password},
     {
       'observe': 'response',
       'headers': { Authorization: `Bearer ${localStorage.getItem('jwt')}` }
@@ -35,8 +37,15 @@ export class AuthService {
       const jwt = res.headers.get('token');
       localStorage.setItem('jwt', jwt);
 
-      localStorage.setItem('user_info', JSON.stringify(res.body));
-      console.log(sessionStorage.getItem('user_info'));
+      localStorage.setItem('user_id', res.body.id.toString());
+      localStorage.setItem('username', res.body.username);
+      let user : UserInfo = {
+        "userId" : res.body.id,
+        "username" : res.body.username,
+        "email" : res.body.email
+      }
+      localStorage.setItem('user_info', user.toString());
+      this.getLoggedInName.emit('Sign In');
       this.router.navigate(['profile']);
     }, err => {
       const errorMessage = err.error;

@@ -10,7 +10,7 @@ export class GiveawayService {
 
   http: HttpClient;
 
-  url: string = "http://localhost:8081/giveaways"
+  url: string = "http://34.125.87.37:2000/giveaways"
 
   constructor(httpClient: HttpClient) { 
     this.http = httpClient;
@@ -25,8 +25,26 @@ export class GiveawayService {
 
   }
 
+  getGiveawayByCreatorId(id: number): Observable<Giveaway[]> {
+    return this.http.get<Giveaway[]>(`http://34.125.87.37:2000/users/${id}/giveaways`)
+  }
+
+  getGiveawaysByWinnerId(id: number) : Observable<Giveaway[]> {
+    return this.http.get<Giveaway[]>(`${this.url}/winners/${id}`)
+  }
+
+  addGiveaway(giveaway: Giveaway) {
+    this.http.post(this.url, giveaway, {
+      'observe': 'response',
+      'headers': { Authorization: `Bearer ${localStorage.getItem('jwt')}`}
+    }).subscribe();
+  }
 
   enterGiveaway(userId: number, giveawayId: number) {
-    this.http.post(`${this.url}/${giveawayId}`, userId)
+    this.http.post(`${this.url}/${giveawayId}/entries/${userId}`, {}, {
+      'observe': 'response',
+      'headers': { Authorization: `Bearer ${localStorage.getItem('jwt')}`}
+    }).subscribe();
   }
+
 }

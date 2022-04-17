@@ -24,6 +24,7 @@ import { GiveawayTimerComponent } from './components/giveaway-timer/giveaway-tim
 import { GiveawayButtonComponent } from './components/giveaway-button/giveaway-button.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { GiveawayWinnerComponent } from './components/giveaway-winner/giveaway-winner.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     GiveawayTimerComponent,
     GiveawayButtonComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    GiveawayWinnerComponent
   ],
   imports: [
     BrowserModule,

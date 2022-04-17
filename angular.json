@@ -42,8 +42,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "9kb",
+                  "maximumError": "10kb"
                 }
               ],
               "fileReplacements": [
@@ -99,6 +99,16 @@
               "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "readaway-ui:build:production",
+            "firebaseProject": "readaway-site",
+            "firebaseHostingSite": "readaway-site"
           }
         }
       }

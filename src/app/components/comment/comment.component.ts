@@ -23,12 +23,11 @@ export class CommentComponent implements OnInit {
 
   submit() {
     let commentToAdd: Comment = {
-      "comment_text": this.commentText,
-      "post_time": new Date().toISOString(),
-      "user_id": 1, //TODO get user id
-      "parent_comment_id": this.comment.id
+      "text": this.commentText,
+      "user": {"id": +localStorage.getItem("user_id")},
     }
-    this.commentService.addComment(commentToAdd);
+    this.commentService.addCommentAsReply(this.comment.id, commentToAdd);
+    location.reload();
   }
 
 }
