@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 
 export class UserService {
 
+  url: string = "http://34.125.87.37:2000";
+
   registerErrorSubject: Subject<string> = new Subject<string>();
 
   constructor(private http: HttpClient, private router: Router) {  }
@@ -20,7 +22,11 @@ export class UserService {
   }
 
   register(email: string, username: string, password: string) {
+<<<<<<< HEAD
     this.http.post<User>(`http://34.125.87.37:2000/register`, { email: email, username: username, password: password},
+=======
+    this.http.post<User>(`${this.url}/register`, { email: email, username: username, password: password},
+>>>>>>> ed5ec44d5d194a03f254f7cae88e96884861f420
     {
       'observe': 'response',
       'headers': { Authorization: `Bearer ${localStorage.getItem('jwt')}` }
@@ -39,6 +45,10 @@ export class UserService {
   }
 
   getAllUsers() {
+<<<<<<< HEAD
     return this.http.get<User[]>(`http://34.125.87.37:2000/users`)
+=======
+    return this.http.get<User[]>(`${this.url}/users`)
+>>>>>>> ed5ec44d5d194a03f254f7cae88e96884861f420
   }
 }

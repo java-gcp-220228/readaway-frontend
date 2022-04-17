@@ -1,5 +1,5 @@
-import { UserInfo } from "./UserInfo"
-
+import { Comment } from "./comment"
+import { User } from "./User"
 
 export interface Giveaway {
     "id"?: number,
@@ -7,8 +7,8 @@ export interface Giveaway {
     "endTime": string,
     "isbn": string,
     "book_title"?: string,
-    "creator": UserInfo,
-    "winner"?: UserInfo | null, 
-    "entries"?: UserInfo[],
-    "comments": Comment[] | null
+    "creator": User,
+    "winner"?: User | null,
+    "comments"?: Comment[], 
+    "entrants"?: User[]
 }

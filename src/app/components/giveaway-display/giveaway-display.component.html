@@ -66,7 +66,7 @@
                             </div>
                             <div class="col-md-6 headline">
                                 <h1 class="mb-3">Congratulations, {{giveawayWinner}}!</h1>
-                            <app-giveaway-button [entries]="currentGiveaway.entries" [giveawayId]="+currentGiveaway.id" [giveawayWinner]="giveawayWinner"></app-giveaway-button>
+                            <app-giveaway-button [entries]="currentGiveaway.entrants" [giveawayId]="+currentGiveaway.id" [giveawayWinner]="giveawayWinner"></app-giveaway-button>
                             </div>
                         </div>
                         </figure>
@@ -89,9 +89,9 @@
                             </figure>
                             <div class="row">
                                 <div class="col-sm">
-                                    <app-giveaway-button [entries]="currentGiveaway.entries" [giveawayId]="+currentGiveaway.id" [giveawayWinner]="giveawayWinner"></app-giveaway-button>
+                                    <app-giveaway-button [entries]="currentGiveaway.entrants" [giveawayId]="+currentGiveaway.id" [giveawayWinner]="giveawayWinner"></app-giveaway-button>
                                 </div>
                             </div>                                 
                         </ng-template>
-                        <app-comment-section [giveawayId]="currentGiveaway.id" [comments]="currentGiveaway.comments"></app-comment-section>
+                        <app-comment-section></app-comment-section>
     

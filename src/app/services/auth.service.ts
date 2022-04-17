@@ -12,6 +12,8 @@ import { User } from '../interfaces/User';
 export class AuthService {
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
 
+  url: string = "http://34.125.87.37:2000";
+
   loginErrorSubject: Subject<string> = new Subject<string>();
 
   constructor(private http: HttpClient, private router: Router) { }
