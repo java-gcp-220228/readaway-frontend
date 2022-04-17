@@ -60,7 +60,7 @@ export class GiveawayTimerComponent implements OnInit {
 
   reloadPage() {
     // this.router.navigate([`giveaways/${this.giveawayId}`]);
-    location.reload();
+    this.router.navigate([`giveaways/winner/${this.giveawayId}`])
   }
   ngOnDestroy() {
     clearInterval(this.x);

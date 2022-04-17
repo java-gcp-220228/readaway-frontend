@@ -15,9 +15,9 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
-      email: new FormControl('email', Validators.required),
-      username: new FormControl('username', Validators.required),
-      password: new FormControl('password', Validators.required)
+      email: new FormControl('', Validators.required),
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
     });
     this.userService.registerErrorSubject.subscribe((errMsg) => {
       this.errorMessage = errMsg;
