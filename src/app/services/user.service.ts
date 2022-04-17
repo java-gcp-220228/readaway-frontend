@@ -20,7 +20,7 @@ export class UserService {
   }
 
   register(email: string, username: string, password: string) {
-    this.http.post<User>(`http://localhost:8081/register`, { email: email, username: username, password: password},
+    this.http.post<User>(`http://34.125.87.37:2000/register`, { email: email, username: username, password: password},
     {
       'observe': 'response',
       'headers': { Authorization: `Bearer ${localStorage.getItem('jwt')}` }
@@ -39,6 +39,6 @@ export class UserService {
   }
 
   getAllUsers() {
-    return this.http.get<User[]>(`http://localhost:8081/users`)
+    return this.http.get<User[]>(`http://34.125.87.37:2000/users`)
   }
 }
