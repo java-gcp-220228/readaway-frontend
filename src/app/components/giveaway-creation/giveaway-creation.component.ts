@@ -40,7 +40,7 @@ export class GiveawayCreationComponent implements OnInit {
     }
 
     let giveaway: Giveaway = {
-      "end_time": new Date(this.endTime).toISOString(),
+      "endTime": new Date(this.endTime).toISOString(),
       "isbn": this.selectedIsbn,
       "creator": JSON.parse(localStorage.getItem('user_info')),
       "comments": [],

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
@@ -10,6 +10,7 @@ import { User } from '../interfaces/User';
   providedIn: 'root'
 })
 export class AuthService {
+  @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
 
   loginErrorSubject: Subject<string> = new Subject<string>();
 
@@ -41,7 +42,7 @@ export class AuthService {
         "email" : res.body.email
       }
       localStorage.setItem('user_info', user.toString());
-      console.log(sessionStorage.getItem('user_info'));
+      this.getLoggedInName.emit('Sign In');
       this.router.navigate(['profile']);
     }, err => {
       const errorMessage = err.error;

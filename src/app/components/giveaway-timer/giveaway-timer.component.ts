@@ -20,6 +20,7 @@ export class GiveawayTimerComponent implements OnInit {
 
   x = setInterval(()=> {
     let difference: number = Date.parse(this.endTimestamp) - Date.now();
+    
 
     this.days = Math.floor(difference/1000/60/60/24);
 
@@ -40,7 +41,10 @@ export class GiveawayTimerComponent implements OnInit {
    
   }, 1000);
 
-  constructor(private giveawayService: GiveawayService, private router: Router) { }
+  constructor(private giveawayService: GiveawayService, private router: Router) { 
+    console.log(this.endTimestamp);
+    console.log(Date.parse(this.endTimestamp));
+  }
 
   ngOnInit(): void {
   }

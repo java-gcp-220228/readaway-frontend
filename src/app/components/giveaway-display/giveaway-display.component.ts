@@ -15,7 +15,7 @@ export class GiveawayDisplayComponent implements OnInit {
 
 
   giveawayRouteId: number;
-  currentGiveaway: Giveaway;
+  currentGiveaway!: Giveaway;
   backgroundImg: string;
   giveawayWinner: string | null;
 
@@ -30,7 +30,7 @@ export class GiveawayDisplayComponent implements OnInit {
       this.giveawayRouteId = +params.get('id');
     })
     this.giveawayService.getGiveawayById(this.giveawayRouteId).subscribe((giveaway)=>{
-
+        console.log(giveaway);
         this.currentGiveaway = giveaway;
         this.backgroundImg = 'https://covers.openlibrary.org/b/isbn/' + this.currentGiveaway.isbn + '-L.jpg?default=false';
         this.giveawayWinner = giveaway.winner.username;

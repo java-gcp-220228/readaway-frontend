@@ -53,7 +53,7 @@
                         <!-- Post title-->
                         <h1 class="fw-bolder mb-1">{{currentGiveaway.book_title}}</h1>
                         <!-- Post meta content-->
-                        <div class="text-muted fst-italic mb-2">Created: {{currentGiveaway.start_time | date}}</div>
+                        <div class="text-muted fst-italic mb-2">Created: {{currentGiveaway.startTime}}</div>
                     </header>
                     <!-- Preview image figure-->
                     <ng-container *ngIf="giveawayWinner; then showWinner; else showTimer">
@@ -81,7 +81,7 @@
                                     <div class="col-md-6">
                                         <h1 class="mb-3">Enter to win!</h1>
                                     <h3 class="mb-4">{{currentGiveaway.book_title}}</h3>
-                                    <app-giveaway-timer [endTimestamp]="currentGiveaway.end_time" [giveawayId]="+currentGiveaway.id"></app-giveaway-timer>
+                                    <app-giveaway-timer [endTimestamp]="currentGiveaway.endTime" [giveawayId]="+currentGiveaway.id"></app-giveaway-timer>
                                     </div>
                                   
                                 </div>
