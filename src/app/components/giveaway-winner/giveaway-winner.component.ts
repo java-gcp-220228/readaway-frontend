@@ -16,7 +16,7 @@ export class GiveawayWinnerComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.giveawayRouteId = +params.get('id');
-      this.rerouteLink = `/giveaway/${this.giveawayRouteId}`
+      this.rerouteLink = `/giveaways/${this.giveawayRouteId}`
     })
   }
 

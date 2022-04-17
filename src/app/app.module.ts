@@ -27,6 +27,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { GiveawayWinnerComponent } from './components/giveaway-winner/giveaway-winner.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,7 @@ import { GiveawayWinnerComponent } from './components/giveaway-winner/giveaway-w
     GiveawayButtonComponent,
     HomeComponent,
     ProfileComponent,
-    GiveawayWinnerComponent
+    GiveawayWinnerComponent,
   ],
   imports: [
     BrowserModule,
