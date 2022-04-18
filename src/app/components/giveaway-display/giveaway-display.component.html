@@ -1,41 +1,3 @@
-<!-- 
-<div class="d-flex justify-content-center align-items-center h-100">
-    <div>
-    
-        <ng-container *ngIf="giveawayWinner; then showWinner; else showTimer">
-        </ng-container>
-    
-        <ng-template #showWinner>
-            <div class="col-md">
-                <img [src]="backgroundImg" onerror="this.onerror=null; this.src='https://storage.googleapis.com/misc-github-images-bucket/book.jpg'" alt=""/>
-            </div>
-            <h1 class="mb-3">Congratulations, {{giveawayWinner}}</h1>
-            <app-giveaway-button [entries]="currentGiveaway.entries" [giveawayId]="+currentGiveaway.id" [giveawayWinner]="giveawayWinner"></app-giveaway-button>
-        </ng-template>
-        <ng-template #showTimer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md">
-                        <img [src]="backgroundImg" onerror="this.onerror=null; this.src='https://storage.googleapis.com/misc-github-images-bucket/book.jpg'" alt=""/>
-                    </div>
-                    <div class="col-sm">
-                        <h1 class="mb-3">Enter to win!</h1>
-                    <h3 class="mb-4">{{currentGiveaway.book_title}}</h3>
-                    <app-giveaway-timer [endTimestamp]="+currentGiveaway.end_time" [giveawayId]="+currentGiveaway.id"></app-giveaway-timer>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm">
-                            <app-giveaway-button [entries]="currentGiveaway.entries" [giveawayId]="+currentGiveaway.id" [giveawayWinner]="giveawayWinner"></app-giveaway-button>
-                        </div>
-                    </div>
-                </div>
-            </div>                                      
-        </ng-template>
-                 
-        
-    </div>
-</div> -->
-
 <section class="py-5">
     <div class="container px-5 my-5">
         <div class="row gx-5">
@@ -80,7 +42,6 @@
                                     </div>
                                     <div class="col-md-6">
                                         <h1 class="mb-3">Enter to win!</h1>
-                                    <h3 class="mb-4">{{currentGiveaway.book_title}}</h3>
                                     <app-giveaway-timer [endTimestamp]="currentGiveaway.endTime" [giveawayId]="+currentGiveaway.id"></app-giveaway-timer>
                                     </div>          
                                 </div>

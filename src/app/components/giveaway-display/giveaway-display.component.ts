@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Giveaway } from 'src/app/interfaces/giveaway';
 import { GiveawayService } from 'src/app/services/giveaway.service';
+import { BookSearchService } from 'src/app/services/book-search.service';
 
 
 
@@ -21,7 +22,7 @@ export class GiveawayDisplayComponent implements OnInit {
   createTime: string;
 
   constructor(private giveawayService: GiveawayService, private route:ActivatedRoute,
-     private router:Router) {
+     private router:Router, private bookSearch:BookSearchService) {
 
   }
 
@@ -34,6 +35,9 @@ export class GiveawayDisplayComponent implements OnInit {
         
         this.currentGiveaway = giveaway;
         this.createTime = new Date(giveaway.startTime).toLocaleString();
+        this.bookSearch.searchISBN(giveaway.isbn).subscribe((title) => {
+          this.currentGiveaway.book_title = title.title;
+        });
         this.backgroundImg = 'https://covers.openlibrary.org/b/isbn/' + this.currentGiveaway.isbn + '-L.jpg?default=false';
         this.giveawayWinner = giveaway.winner.username;
     

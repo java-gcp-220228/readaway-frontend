@@ -1,3 +1,8 @@
 .image-link :hover {
     cursor: pointer;
 }
+
+.not-found-image {
+    max-height: 550px;
+    padding-left: 25%;
+}

@@ -1,6 +1,6 @@
 .book-image {
     width: 200px;
-    max-height: 300px;
+    height: 300px;
     margin-left: 20%;
 }
 
@@ -18,6 +18,8 @@
     cursor: pointer;
 }
 
-h1, h2 {
+h1, h4 {
     text-align: center;
+    padding-top: 3%;
+    padding-bottom: 2%;
 }

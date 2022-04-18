@@ -12,4 +12,8 @@ export class BookSearchService {
   search(bookSearchInput: string): Observable<any> {
     return this.http.get(`https://openlibrary.org/search.json?title=${encodeURIComponent(bookSearchInput)}`, {headers:{skip:"true"}});
   }
+
+  searchISBN(isbn: string): Observable<any> {
+    return this.http.get(`https://openlibrary.org/isbn/${isbn}.json`, {headers:{skip:"true"}});
+  }
 }

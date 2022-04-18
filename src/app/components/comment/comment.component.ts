@@ -27,7 +27,8 @@ export class CommentComponent implements OnInit {
       "user": {"id": +localStorage.getItem("user_id")},
     }
     this.commentService.addCommentAsReply(this.comment.id, commentToAdd);
-    location.reload();
+    setTimeout(function() {
+      location.reload();
+  }, 1000);
   }
-
 }
