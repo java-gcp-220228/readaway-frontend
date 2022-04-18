@@ -26,13 +26,13 @@ List of features:
 - As a registered User, I can view ongoing giveaways and add one entry per giveaway.
 - As a registered User, I can create a new giveaway with a specific expiration date and time. I can search for the book I will be giving away and have the image and title displayed on the giveaway.
 - As a registered User, I can make adjustments to my registered profile.
+- As a registered User, I can leave comments on a Giveaway and respond to others' comments.
 
 Stretch Goals:
 
 - Viewing all past winners of giveaways.
-- Commenting on giveaways/ideas for future giveaways.
 
-
+## Getting Started
 - Clone the repository
 ```
 git clone https://github.com/java-gcp-220228/readaway-frontend.git
