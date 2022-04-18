@@ -7,7 +7,7 @@
                 <li class="nav-item"><a class="nav-link" routerLink="/">Home</a></li>
                 <li class="nav-item"><a class="nav-link" routerLink="/about">About</a></li>
                 <li class="nav-item"><a class="nav-link" routerLink="/giveaways">Giveaways</a></li>
-                <ng-container *ngIf="userId; then showLogout; else showSignIn"></ng-container>
+                <ng-container *ngIf="userId || registered; then showLogout; else showSignIn"></ng-container>
                 <ng-template #showLogout>
                     <li class="nav-item"><a class="nav-link" routerLink="/giveaway/create">Create Giveaway</a></li>
                     <li class="nav-item"><a class="nav-link" routerLink="/profile">Profile</a></li>

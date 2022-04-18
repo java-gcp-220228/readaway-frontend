@@ -12,6 +12,7 @@
       <div id="collapseOne" class="accordion-collapse collapse" [ngClass]="expandWins ? 'show' : ''" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
         <div class="accordion-body">
             <div class="row table-rows">
+                <p *ngIf="!wonGiveaways">No luck yet? Enter more <a routerLink="giveaways">giveaways</a>.</p>
                 <ng-container *ngFor="let giveaway of wonGiveaways">
                     <div class="col-lg-3 mb-5">
                         <div class="card h-100 shadow border-0 giveaway-link text-center">
@@ -46,6 +47,7 @@
       <div id="collapseTwo" class="accordion-collapse collapse" [ngClass]="expandCreated ? 'show' : ''" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
         <div class="accordion-body">
             <div class="row table-rows">
+                <p *ngIf="!createdGiveaways">Do you have books you've already read? <a routerLink="/giveaway/create">Create a giveaway.</a></p>
                 <ng-container *ngFor="let giveaway of createdGiveaways">
                     <div class="col-lg-3 mb-5">
                         <div class="card h-100 shadow border-0 giveaway-link text-center">

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { User } from '../interfaces/User';
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class UserService {
 
   url: string = "http://34.125.87.37:2000";
+  @Output() getRegisterUser: EventEmitter<any> = new EventEmitter();
 
   registerErrorSubject: Subject<string> = new Subject<string>();
 
@@ -32,8 +33,8 @@ export class UserService {
       localStorage.setItem('jwt', jwt);
 
       localStorage.setItem('user_id', res.body.id.toString());
-      console.log(sessionStorage.getItem('user_info'));
-      this.router.navigate(['profile']);
+      this.getRegisterUser.emit('Register User');
+      this.router.navigate(['giveaways']);
     }, err => {
       const errorMessage = err.error;
       this.registerErrorSubject.next(errorMessage);

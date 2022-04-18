@@ -26,7 +26,6 @@ export class RegistrationComponent implements OnInit {
 
   register() {
     const user = this.registerForm.value;
-    console.log(user);
     this.userService.register(user.email, user.username, user.password)
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { Giveaway } from 'src/app/interfaces/giveaway';
 import { BookSearchService } from 'src/app/services/book-search.service';
 import { GiveawayService } from 'src/app/services/giveaway.service';
@@ -47,7 +47,9 @@ export class GiveawayCreationComponent implements OnInit {
     }
     
     this.giveawayService.addGiveaway(giveaway);
-    this.router.navigate(["giveaways"])
+    setTimeout(() => {
+      this.router.navigate(["giveaways"]);
+  }, 1000);
   }
 
 }
